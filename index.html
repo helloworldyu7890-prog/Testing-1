@@ -1,507 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BurmaYoYar-HD - Premium Cyberpunk Mobile</title>
-    
-    <script src="https://pl30149725.effectivecpmnetwork.com/72/36/71/723671d6fb365692e8aae17ed2085563.js"></script>
-    <script src="https://pl30149726.effectivecpmnetwork.com/22/3d/45/223d45507315c360b0744fa53a9dbbfc.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaung Dain MM - Premium Streaming</title>
     <style>
-        :root {
-            --neon-purple: #a100ff;
-            --neon-cyan: #00f0ff;
-            --dark-bg: #0b0c10;
-            --panel-bg: #1f2833;
-            --text-main: #c5a1ff;
-            --text-light: #ffffff;
-            --text-muted: #66fcf1;
-        }
-
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; 
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0f19; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 50px; }
+        header { background: linear-gradient(180deg, #111827 0%, rgba(17,24,39,0) 100%); padding: 20px; text-align: center; }
+        .logo { color: #ef4444; font-size: 28px; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        body { 
-            background: var(--dark-bg);
-            color: var(--text-light);
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .app-container {
-            width: 100%;
-            max-width: 480px; 
-            background-color: var(--dark-bg);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            border-left: 1px solid rgba(0, 240, 255, 0.2);
-            border-right: 1px solid rgba(0, 240, 255, 0.2);
-        }
-
-        header {
-            background-color: rgba(31, 40, 51, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--neon-cyan);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Video Section */
+        .main-video-container { background-color: #1f2937; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5); margin-bottom: 30px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ height: 0; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-info { padding: 20px; }
+        .video-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #f3f4f6; }
         
-        .header-brand h2 {
-            font-size: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .header-brand h2 .part-burma { color: var(--text-light); font-weight: 900; }
-        .header-brand h2 .part-yoyar { color: var(--neon-cyan); font-weight: 900; }
-        .header-brand h2 .part-hd { color: var(--neon-purple); font-weight: 900; text-shadow: 0 0 10px var(--neon-purple); }
-        .header-menu-icon { color: var(--neon-cyan); font-size: 20px; cursor: pointer; }
-
-        .search-container {
-            padding: 14px;
-        }
-        .search-box {
-            display: flex;
-            background-color: var(--panel-bg);
-            border: 1px solid var(--neon-purple);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 0 8px rgba(161, 0, 255, 0.3);
-        }
-        .search-box input {
-            flex-grow: 1;
-            background: transparent;
-            border: none;
-            padding: 12px 20px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-        }
-        .search-box input::placeholder { color: rgba(255,255,255,0.4); }
-        .search-btn {
-            background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
-            border: none;
-            color: #000;
-            padding: 0 20px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .hero-banner-section {
-            background: linear-gradient(180deg, rgba(11, 12, 16, 0.7) 0%, rgba(11, 12, 16, 1) 100%), 
-                        url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400');
-            background-size: cover;
-            background-position: center;
-            padding: 25px 20px;
-            min-height: 140px;
-            border-bottom: 1px solid rgba(161, 0, 255, 0.1);
-        }
-        
-        .hero-sub {
-            font-size: 14px;
-            color: var(--neon-cyan);
-            margin-bottom: 6px;
-            font-weight: 800;
-            text-shadow: 0 0 5px var(--neon-cyan);
-        }
-        .hero-main-title { font-size: 12px; font-weight: 400; line-height: 1.6; color: rgba(255,255,255,0.8); }
-
-        .main-body-content { padding: 15px; }
-
-        .content-slide { transition: transform 0.35s ease, opacity 0.35s ease; }
-        .slide-out { opacity: 0; transform: translateY(20px); }
-        .slide-in { opacity: 1; transform: translateY(0); }
-
-        .section-left-title {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        .section-left-title h3 {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--neon-cyan);
-            letter-spacing: 1px;
-        }
-        .section-left-title p {
-            font-size: 10px;
-            color: rgba(255,255,255,0.5);
-            margin-top: 2px;
-        }
-
-        .top-categories-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .circle-category-card {
-            background-color: var(--panel-bg);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 12px;
-            aspect-ratio: 16/10;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .circle-category-card:active { transform: scale(0.95); box-shadow: 0 0 10px var(--neon-cyan); }
-        .circle-category-card span {
-            font-size: 11px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 5px #000;
-            z-index: 2;
-        }
-
-        .shakes-style-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-        .shake-premium-card {
-            background-color: var(--panel-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(161, 0, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.2s ease;
-        }
-        .shake-thumb-placeholder {
-            width: 100%;
-            aspect-ratio: 16/10;
-            position: relative;
-            background-color: #000;
-        }
-        .shake-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .shake-card-info {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
-        .shake-premium-card h4 {
-            font-size: 11px;
-            color: var(--text-light);
-            line-height: 1.4;
-            margin-bottom: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .shake-meta-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .shake-price { font-size: 9px; color: var(--neon-cyan); }
-        .shake-watch-btn {
-            color: #fff;
-            background: var(--neon-purple);
-            font-size: 9px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            box-shadow: 0 0 5px var(--neon-purple);
-        }
-
-        .latest-blogs-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .blog-style-card {
-            background-color: var(--panel-bg);
-            border-radius: 8px;
-            padding: 8px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            cursor: pointer;
-            border: 1px solid rgba(0, 240, 255, 0.1);
-        }
-        .blog-media-left {
-            width: 70px;
-            height: 50px;
-            border-radius: 4px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .blog-media-left img { width: 100%; height: 100%; object-fit: cover; }
-        .blog-info-right { flex-grow: 1; overflow: hidden; }
-        .blog-info-right h4 {
-            font-size: 11px;
-            color: #fff;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .blog-info-right p { font-size: 9px; color: rgba(255,255,255,0.5); }
-
-        .cinema-theater-panel {
-            display: none;
-            background-color: #000;
-            border: 2px solid var(--neon-cyan);
-            padding: 6px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px var(--neon-cyan);
-        }
-        .video-player-outer-box {
-            width: 100%;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-        }
-        .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
-        .cinema-title-heading { font-size: 12px; padding: 6px 2px 2px 2px; color: var(--neon-cyan); }
-
-        /* Notice Pop-up Styling */
-        .notice-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9); z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease;
-        }
-        .notice-overlay.show { opacity: 1; visibility: visible; }
-        .notice-box {
-            width: 85%; max-width: 340px; background-color: var(--panel-bg);
-            border: 2px solid var(--neon-purple); border-radius: 12px;
-            padding: 20px; text-align: center; box-shadow: 0 0 20px var(--neon-purple);
-        }
-        .notice-title { font-size: 16px; color: var(--neon-cyan); font-weight: bold; margin-bottom: 10px; }
-        .notice-text { font-size: 12px; color: #fff; line-height: 1.6; margin-bottom: 15px; }
-        .notice-btn {
-            width: 100%; background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan)); color: #000;
-            border: none; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: bold; cursor: pointer;
-        }
-
-        footer {
-            background-color: #050508;
-            padding: 20px 15px;
-            text-align: center;
-            font-size: 10px;
-            color: rgba(255,255,255,0.4);
-            border-top: 1px solid rgba(161, 0, 255, 0.2);
-        }
-        .loader { display: block; margin: 15px auto; border: 2px solid rgba(255,255,255,0.1); border-top: 2px solid var(--neon-cyan); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Grid Section */
+        .section-title { font-size: 22px; margin-bottom: 20px; border-left: 4px solid #ef4444; padding-left: 10px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .video-card { background-color: #111827; border-radius: 8px; overflow: hidden; transition: transform 0.2s; cursor: pointer; text-decoration: none; display: block; }
+        .video-card:hover { transform: translateY(-5px); }
+        .thumbnail-box { position: relative; background-color: #374151; width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; }
+        .play-icon { font-size: 40px; color: rgba(255,255,255,0.8); }
+        .card-info { padding: 12px; color: #d1d5db; font-size: 14px; }
     </style>
+
+    <!-- ⚠️ အရေးကြီး - ADSTERRA POPUNDER CODE ကို အောက်ကနေရာမှာ ထည့်ပါ -->
+    <!-- <script type='text/javascript' src='//plxxxxxxx.com/.../invoke.js'></script> -->
+    
 </head>
 <body>
 
-<div class="notice-overlay" id="noticePopup">
-    <div class="notice-box">
-        <div class="notice-title">📢 ကြိုဆိုပါတယ်ဗျာ</div>
-        <div class="notice-text">
-            BurmaYoYar-HD စနစ်မှ အကောင်းဆုံး ဗီဒီယိုနှင့် ရုပ်ရှင်များကို အခမဲ့ အရည်အသွေးမြင့်မားစွာဖြင့် တင်ဆက်ပေးနေပါသည်။
-        </div>
-        <button class="notice-btn" onclick="closeNotice()">👌 ဆက်လုပ်မည်</button>
-    </div>
-</div>
-
-<div class="app-container">
-
     <header>
-        <div class="header-brand" onclick="backToHome()">
-            <h2>
-                <span class="part-burma">Burma</span><span class="part-yoyar">YoYar</span><span class="part-hd">-HD</span>
-            </h2>
-        </div>
-        <div class="header-menu-icon" onclick="backToHome()">☰</div>
+        <a href="#" class="logo">PHAUNG DAIN <span style="color:#fff;">MM</span></a>
     </header>
 
-    <div class="search-container">
-        <div class="search-box">
-            <input type="text" id="userSearchInput" placeholder="ဗီဒီယိုအမည်ဖြင့် ရှာဖွေပါ..." onkeypress="handleSearchKeyPress(event)">
-            <button class="search-btn" onclick="triggerSearch()">ရှာပါ</button>
-        </div>
-    </div>
-
-    <div class="hero-banner-section">
-        <div class="hero-sub" id="animatedTitle">ပရီမီယမ် ရသခံစားမှု့</div>
-        <div class="hero-main-title" id="animatedBody">အဆင့်မြင့် အာရှဇာတ်ကားများနှင့် ကမ္ဘာ့ရုပ်ရှင်ပေါင်းများစွာကို စိတ်ကြိုက်အခမဲ့ ကြည့်ရှုနိုင်ပါသည်။</div>
-    </div>
-
-    <div class="main-body-content">
-
-        <div class="cinema-theater-panel" id="theaterBox">
-            <div class="video-player-outer-box">
-                <iframe id="videoIframe" src="" allowfullscreen></iframe>
-            </div>
-            <h3 class="cinema-title-heading" id="videoTitle">Streaming Player Title...</h3>
-        </div>
-
-        <div class="section-left-title">
-            <h3>TOP CATEGORIES</h3>
-            <p>Explore Selected Genres This Week</p>
-        </div>
+    <div class="container">
         
-        <div class="top-categories-grid">
-            <div class="circle-category-card" onclick="fetchNewCategory('myanmar')">
-                <span>Myanmar</span>
+        <!-- Main Featured Video (လတ်တလောတင်ထားတဲ့ ကားကြီး) -->
+        <h2 class="section-title">ယခုအပတ် အသစ်စက်စက် ဗီဒီယို</h2>
+        <div class="main-video-container">
+            <div class="video-wrapper">
+                <!-- မင်းရဲ့ ရုပ်ရှင် Link (Doodstream သို့မဟုတ် Embed link) ကို src မှာ ထည့်ပါ -->
+                <iframe src="https://dood.li/e/မင်းရဲ့ဗီဒီယိုကုဒ်" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
             </div>
-            <div class="circle-category-card" onclick="fetchNewCategory('japan')">
-                <span>Japan</span>
-            </div>
-            <div class="circle-category-card" onclick="fetchNewCategory('asian')">
-                <span>Asian</span>
+            <div class="video-info">
+                <h1 class="video-title">မြန်မာအသစ်စက်စက် မင်းသမီးချောလေး (ရုပ်သံကြည်လင်မှု 1080p)</h1>
             </div>
         </div>
 
-        <div id="contentWrapper" class="content-slide">
+        <!-- More Videos Grid (တခြားဗီဒီယိုများ စာရင်း) -->
+        <h2 class="section-title">ဆက်စပ်ဗီဒီယိုများ</h2>
+        <div class="video-grid">
             
-            <div class="section-left-title">
-                <h3>PLATINUM DISCOVERIES</h3>
-                <p>Premium Exclusives For You</p>
-            </div>
-            <div class="shakes-style-grid" id="shakesGrid"></div>
+            <!-- ကတ် တစ်ကတ်ချင်းစီ ပုံစံ -->
+            <a href="#" class="video-card">
+                <div class="thumbnail-box">
+                    <!-- Thumbnail ပုံရှိရင် img tag နဲ့ ထည့်လို့ရပါတယ် -->
+                    <span class="play-icon">▶</span>
+                </div>
+                <div class="card-info">
+                    မြန်မာအိမ်တွင်းဖြစ် စုံတွဲ အပိုင်း (၁)
+                </div>
+            </a>
 
-            <div class="section-left-title">
-                <h3>LATEST RELEASES</h3>
-                <p>Most Recent Uploaded Updates</p>
-            </div>
-            <div class="latest-blogs-column" id="blogsColumn"></div>
+            <a href="#" class="video-card">
+                <div class="thumbnail-box">
+                    <span class="play-icon">▶</span>
+                </div>
+                <div class="card-info">
+                    နန်းတွင်းဇာတ်လမ်းတွဲ အသစ်
+                </div>
+            </a>
+
+            <a href="#" class="video-card">
+                <div class="thumbnail-box">
+                    <span class="play-icon">▶</span>
+                </div>
+                <div class="card-info">
+                    အာရှမော်ဒယ်လ် အလန်းဇာတ်ကား
+                </div>
+            </a>
 
         </div>
-
-        <div class="loader" id="networkLoader" style="display:none;"></div>
-
     </div>
 
-    <footer>
-        &copy; 2026 BurmaYoYar-HD. Cyber-Neon Variant. All Rights Reserved.
-    </footer>
-
-</div>
-
-<script>
-    const API_URL = 'https://www.eporner.com/api/v2/video/search/';
-    let currentKeyword = 'myanmar';
-    let currentPage = 1;
-    let loading = false;
-    let appendMode = false;
-    let loadedVideoIds = new Set(); 
-
-    document.addEventListener("DOMContentLoaded", () => {
-        startEngine();
-        checkAndShowNotice();
-    });
-
-    function checkAndShowNotice() {
-        const hasSeenNotice = localStorage.getItem("hasSeenBurmaNoticeNeon");
-        if (!hasSeenNotice) {
-            document.getElementById("noticePopup").classList.add("show");
-        }
-    }
-
-    function closeNotice() {
-        document.getElementById("noticePopup").classList.remove("show");
-        localStorage.setItem("hasSeenBurmaNoticeNeon", "true");
-    }
-
-    function startEngine() {
-        appendMode = false;
-        loadedVideoIds.clear();
-        currentPage = Math.floor(Math.random() * 5) + 1;
-        loadContentFeed(currentKeyword, currentPage);
-    }
-
-    async function loadContentFeed(keyword, page) {
-        if (loading) return;
-        loading = true;
-        document.getElementById("networkLoader").style.display = "block";
-
-        try {
-            const res = await fetch(`${API_URL}?query=${encodeURIComponent(keyword)}&per_page=16&page=${page}&thumbsize=big`);
-            const data = await res.json();
-
-            if (data && data.videos && data.videos.length > 0) {
-                if (!appendMode) {
-                    document.getElementById("shakesGrid").innerHTML = "";
-                    document.getElementById("blogsColumn").innerHTML = "";
-                }
-                
-                const uniqueVideos = data.videos.filter(video => {
-                    if (loadedVideoIds.has(video.id)) {
-                        return false;
-                    } else {
-                        loadedVideoIds.add(video.id);
-                        return true;
-                    }
-                });
-
-                if (uniqueVideos.length > 0) {
-                    renderGridAndColumn(uniqueVideos);
-                } else {
-                    loading = false;
-                    currentPage++;
-                    loadContentFeed(keyword, currentPage);
-                    return;
-                }
-            }
-        } catch (e) {
-            console.error(e);
-        } finally {
-            document.getElementById("networkLoader").style.display = "none";
-            loading = false;
-        }
-    }
-
-    function renderGridAndColumn(videos) {
-        const shakesGrid = document.getElementById("shakesGrid");
-        const blogsColumn = document.getElementById("blogsColumn");
-
-        const firstFour = videos.slice(0, 4);
-        firstFour.forEach(v => {
-            const card = document.createElement("div");
-            card.className = "shake-premium-card";
-            card.onclick = () => playVideo(v.embed, v.title);
-            card.innerHTML = `
-                <div class="shake-thumb-placeholder">
-                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
-                </div>
-                <div class="shake-card-info">
-                    <h4>${v.title}</h4>
-                    <div class="shake-meta-row">
-                        <span class="shake-price">👁️ ${parseInt(v.views).toLocaleString()}</span>
-                        <span class="shake-watch-btn">Play</span>
-                    </div>
-                </div>
-            `;
-            shakesGrid.appendChild(card);
-        });
-
-        const remaining = videos.slice(4);
-        remaining.forEach(v => {
-            const item = document.createElement("div");
-            item.className = "blog-style-card";
-            item.onclick = () => playVideo(v.embed, v.title);
-            item.innerHTML = `
-                <div class="blog-media-left">
-                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
-                </div>
-                
+</body>
+</html>
