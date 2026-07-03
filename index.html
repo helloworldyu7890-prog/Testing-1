@@ -3,90 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phaung Dain MM - Premium Streaming</title>
+    <title>Phaung Dain MM - Auto Video Hub</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0b0f19; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-bottom: 50px; }
-        header { background: linear-gradient(180deg, #111827 0%, rgba(17,24,39,0) 100%); padding: 20px; text-align: center; }
-        .logo { color: #ef4444; font-size: 28px; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
+        body { background-color: #0b0f19; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding-bottom: 50px; }
+        header { background: #111827; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .logo { color: #ef4444; font-size: 24px; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Video Section */
-        .main-video-container { background-color: #1f2937; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5); margin-bottom: 30px; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ height: 0; overflow: hidden; }
+        /* Main Player Section */
+        .player-section { display: none; margin-bottom: 40px; background-color: #1f2937; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .video-info { padding: 20px; }
-        .video-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #f3f4f6; }
+        .player-info { padding: 20px; }
+        .player-title { font-size: 20px; font-weight: 600; color: #f3f4f6; }
         
         /* Grid Section */
         .section-title { font-size: 22px; margin-bottom: 20px; border-left: 4px solid #ef4444; padding-left: 10px; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .video-card { background-color: #111827; border-radius: 8px; overflow: hidden; transition: transform 0.2s; cursor: pointer; text-decoration: none; display: block; }
         .video-card:hover { transform: translateY(-5px); }
-        .thumbnail-box { position: relative; background-color: #374151; width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; }
-        .play-icon { font-size: 40px; color: rgba(255,255,255,0.8); }
-        .card-info { padding: 12px; color: #d1d5db; font-size: 14px; }
+        .thumbnail-box { position: relative; width: 100%; height: 160px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
+        .play-icon { font-size: 45px; color: rgba(255,255,255,0.8); background: rgba(0,0,0,0.5); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .card-info { padding: 12px; color: #d1d5db; font-size: 14px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        /* Loading Status */
+        .loading { text-align: center; padding: 50px; font-size: 18px; color: #9ca3af; }
     </style>
 
-    <!-- ⚠️ အရေးကြီး - ADSTERRA POPUNDER CODE ကို အောက်ကနေရာမှာ ထည့်ပါ -->
+    <!-- ⚠️ ADSTERRA POPUNDER CODE ကို အောက်ကနေရာမှာ အစားထိုးထည့်ပါ -->
     <!-- <script type='text/javascript' src='//plxxxxxxx.com/.../invoke.js'></script> -->
-    
+
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">PHAUNG DAIN <span style="color:#fff;">MM</span></a>
+        <a href="#" class="logo" onclick="window.location.reload();">PHAUNG DAIN <span style="color:#fff;">MM</span></a>
     </header>
 
     <div class="container">
         
-        <!-- Main Featured Video (လတ်တလောတင်ထားတဲ့ ကားကြီး) -->
-        <h2 class="section-title">ယခုအပတ် အသစ်စက်စက် ဗီဒီယို</h2>
-        <div class="main-video-container">
+        <!-- Video Player (ဗီဒီယိုနှိပ်လိုက်မှ ပေါ်လာမည့်နေရာ) -->
+        <div class="player-section" id="playerSection">
             <div class="video-wrapper">
-                <!-- မင်းရဲ့ ရုပ်ရှင် Link (Doodstream သို့မဟုတ် Embed link) ကို src မှာ ထည့်ပါ -->
-                <iframe src="https://dood.li/e/မင်းရဲ့ဗီဒီယိုကုဒ်" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+                <iframe id="videoPlayer" src="" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
             </div>
-            <div class="video-info">
-                <h1 class="video-title">မြန်မာအသစ်စက်စက် မင်းသမီးချောလေး (ရုပ်သံကြည်လင်မှု 1080p)</h1>
+            <div class="player-info">
+                <h1 class="player-title" id="playerTitle">ဗီဒီယိုခေါင်းစဉ်</h1>
             </div>
         </div>
 
-        <!-- More Videos Grid (တခြားဗီဒီယိုများ စာရင်း) -->
-        <h2 class="section-title">ဆက်စပ်ဗီဒီယိုများ</h2>
-        <div class="video-grid">
-            
-            <!-- ကတ် တစ်ကတ်ချင်းစီ ပုံစံ -->
-            <a href="#" class="video-card">
-                <div class="thumbnail-box">
-                    <!-- Thumbnail ပုံရှိရင် img tag နဲ့ ထည့်လို့ရပါတယ် -->
-                    <span class="play-icon">▶</span>
-                </div>
-                <div class="card-info">
-                    မြန်မာအိမ်တွင်းဖြစ် စုံတွဲ အပိုင်း (၁)
-                </div>
-            </a>
-
-            <a href="#" class="video-card">
-                <div class="thumbnail-box">
-                    <span class="play-icon">▶</span>
-                </div>
-                <div class="card-info">
-                    နန်းတွင်းဇာတ်လမ်းတွဲ အသစ်
-                </div>
-            </a>
-
-            <a href="#" class="video-card">
-                <div class="thumbnail-box">
-                    <span class="play-icon">▶</span>
-                </div>
-                <div class="card-info">
-                    အာရှမော်ဒယ်လ် အလန်းဇာတ်ကား
-                </div>
-            </a>
-
-        </div>
+        <!-- Video List Grid -->
+        <h2 class="section-title" id="gridTitle">အကြံပြုထားသော ဗီဒီယိုများ</h2>
+        <div id="loadingStatus" class="loading">ဗီဒီယိုများ ရယူနေသည်... ခေတ္တစောင့်ဆိုင်းပါ...</div>
+        <div class="video-grid" id="videoGrid"></div>
+        
     </div>
 
+    <script>
+        // EPORNER API မှာ ရှာချင်တဲ့ Keyword ကို ဒီမှာ ပြောင်းလို့ရပါတယ် (ဥပမာ- asian, amateur, korean)
+        const SEARCH_KEYWORD = 'asian'; 
+        const API_URL = `https://www.eporner.com/api/v2/video/search/?query=${SEARCH_KEYWORD}&per_page=20&thumbsize=big&format=json`;
+
+        // API ကနေ ဒေတာဆွဲယူတဲ့ Function
+        async function fetchVideos() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                const videoGrid = document.getElementById('videoGrid');
+                const loadingStatus = document.getElementById('loadingStatus');
+                
+                // Loading စာသားကို ဖျောက်လိုက်မယ်
+                loadingStatus.style.display = 'none';
+
+                if(data.videos && data.videos.length > 0) {
+                    data.videos.forEach(video => {
+                        // ဗီဒီယိုကတ်တစ်ခုချင်းစီ ဆောက်မယ်
+                        const card = document.createElement('div');
+                        card.className = 'video-card';
+                        
+                        // အသုံးပြုသူ ကတ်ကို နှိပ်လိုက်ရင် Video Player ထဲ Embed Link ထည့်ပြီး Play မယ်
+                        card.onclick = () => {
+                            playVideo(video.embed, video.title);
+                        };
+
+                        card.innerHTML = `
+                            <div class="thumbnail-box" style="background-image: url('${video.default_thumb.src}')">
+                                <div class="play-icon">▶</div>
+                            </div>
+                            <div class="card-info">${video.title}</div>
+                        `;
+                        videoGrid.appendChild(card);
+                    });
+                } else {
+                    loadingStatus.innerText = 'ဗီဒီယိုများ ရှာမတွေ့ပါ။';
+                    loadingStatus.style.display = 'block';
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.getElementById('loadingStatus').innerText = 'Error: ဗီဒီယိုများ ဆွဲယူ၍ မရနိုင်ပါ။';
+            }
+        }
+
+        // ဗီဒီယိုဖွင့်ပေးမည့် Function
+        function playVideo(embedUrl, title) {
+            const playerSection = document.getElementById('playerSection');
+            const videoPlayer = document.getElementById('videoPlayer');
+            const playerTitle = document.getElementById('playerTitle');
+            
+            videoPlayer.src = embedUrl;
+            playerTitle.innerText = title;
+            playerSection.style.display = 'block';
+            
+            // ဗီဒီယိုဖွင့်လိုက်တာနဲ့ Screen အပေါ်ဆုံးကို Auto တက်သွားအောင်
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // စာမျက်နှာပွင့်တာနဲ့ API ကို စခေါ်မယ်
+        window.onload = fetchVideos;
+    </script>
 </body>
 </html>
