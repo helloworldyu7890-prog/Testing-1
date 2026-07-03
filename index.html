@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BurmaYoYar-HD - Premium Mobile</title>
+    <title>BurmaYoYar-HD - Premium Coffee Warm Edition</title>
     
+    <!-- ⚠️ ADSTERRA POPUNDER SCRIPTS (DO NOT REMOVE) -->
     <script src="https://pl30149725.effectivecpmnetwork.com/72/36/71/723671d6fb365692e8aae17ed2085563.js"></script>
     <script src="https://pl30149726.effectivecpmnetwork.com/22/3d/45/223d45507315c360b0744fa53a9dbbfc.js"></script>
 
     <style>
         :root {
-            --app-bg: #08090d;          /* ပိုမိုနက်မှောင်သော Cyber Dark */
-            --card-bg: #12141c;         /* Card များအတွက် ပြာလွင်သော အမှောင်ရောင် *
-            --neon-crimson: #ff2a54;    /* ပိုလန်းသော နီရဲရဲ ကာလာ */
-            --neon-glow: rgba(255, 42, 84, 0.4);
-            --text-main: #f1f3f9;
-            --text-muted: #64748b;
+            /* 1000017011.jpg ထဲက Warm Cream & Dark Coffee Color Palette ကို အခြေခံထားသည် */
+            --app-bg: #1a1615;          /* နက်မှောင်သော ကော်ဖီရင့်ရောင် */
+            --card-bg: #26201e;         /* ကတ်များအတွက် Charcoal Coffee ရောင် */
+            --accent-cream: #dfc5b3;    /* ပုံထဲကလို နူးညံ့သော Cream ရောင် */
+            --accent-gold: #c5a880;     /* စာသားများအတွက် အလင်းရောင် */
+            --text-main: #f5ebe6;
+            --text-muted: #8e817d;
             --text-glass: rgba(255, 255, 255, 0.7);
         }
 
@@ -28,7 +30,7 @@
         }
         
         body { 
-            background-color: #030406;
+            background-color: #0f0d0c;
             color: var(--text-main);
             display: flex;
             justify-content: center;
@@ -44,20 +46,20 @@
             flex-direction: column;
             overflow-x: hidden;
             box-shadow: 0 0 40px rgba(0,0,0,0.8);
-            border-left: 1px solid rgba(255,255,255,0.03);
-            border-right: 1px solid rgba(255,255,255,0.03);
+            border-left: 1px solid rgba(255,255,255,0.02);
+            border-right: 1px solid rgba(255,255,255,0.02);
         }
 
         /* Modern Glass Header */
         header {
-            background-color: rgba(18, 20, 28, 0.85);
+            background-color: rgba(38, 32, 30, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -70,8 +72,8 @@
             cursor: pointer;
         }
         .header-brand h2 .part-burma { color: #ffffff; font-weight: 800; }
-        .header-brand h2 .part-yoyar { color: var(--neon-crimson); font-weight: 900; text-shadow: 0 0 10px var(--neon-glow); }
-        .header-brand h2 .part-hd { color: #ffffff; font-weight: 400; opacity: 0.8; }
+        .header-brand h2 .part-yoyar { color: var(--accent-cream); font-weight: 900; }
+        .header-brand h2 .part-hd { color: var(--accent-gold); font-weight: 700; opacity: 0.9; }
         .header-menu-icon { color: var(--text-main); font-size: 20px; cursor: pointer; }
 
         /* Sleek Search Interface */
@@ -82,13 +84,13 @@
             display: flex;
             background-color: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 25px; /* ခပ်ဝိုင်းဝိုင်း ပုံစံဆန်း */
+            border-radius: 25px;
             overflow: hidden;
             padding: 2px 6px 2px 14px;
             transition: border-color 0.3s;
         }
         .search-box:focus-within {
-            border-color: var(--neon-crimson);
+            border-color: var(--accent-cream);
         }
         .search-box input {
             flex-grow: 1;
@@ -101,40 +103,63 @@
         }
         .search-box input::placeholder { color: var(--text-muted); }
         .search-btn {
-            background-color: var(--neon-crimson);
+            background-color: var(--accent-cream);
             border: none;
-            color: #fff;
+            color: #1a1615;
             padding: 0 18px;
             font-size: 12px;
             font-weight: bold;
             border-radius: 20px;
             margin: 4px 0;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(255, 42, 84, 0.3);
         }
 
-        /* Minimalist Hero Layout */
+        /* 1000017011.jpg Wave Style Hero Section */
         .hero-banner-section {
-            background: linear-gradient(180deg, rgba(8, 9, 13, 0.4) 0%, var(--app-bg) 100%), 
-                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400');
-            background-size: cover;
-            background-position: center;
-            padding: 24px 16px;
-            min-height: 130px;
+            background-color: var(--accent-cream);
+            position: relative;
+            padding: 30px 24px 45px 24px;
+            min-height: 160px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* ပုံထဲကလို အမည်းရောင် Wave ပုံစံ မျဉ်းကွေး Background ဖန်တီးမှု */
+        .hero-banner-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #1a1615;
+            /* 1000017011.jpg ထဲက မျဉ်းကွေးလှိုင်းပုံစံအတိုင်း ပုံဖော်ထားသော Clip Path */
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 65% 60%, 35% 85%, 0 70%);
+            z-index: 1;
         }
         
+        .hero-text-wrapper {
+            position: relative;
+            z-index: 2; /* စာသားများကို Wave အပေါ်တင်ရန် */
+            max-width: 80%;
+        }
+
+        /* 1000017011.jpg ပါ ခေါင်းစဉ်စတိုင် (FRESHLY ROASTED COFFEE) */
         .hero-sub {
-            font-size: 11px;
-            color: var(--neon-crimson);
-            margin-bottom: 6px;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-size: 12px;
+            color: #8e817d;
+            margin-bottom: 2px;
+            font-weight: 300;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
-        .hero-main-title { font-size: 12px; font-weight: 400; line-height: 1.5; color: var(--text-glass); }
+        .hero-main-title { 
+            font-size: 26px; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            color: var(--accent-cream); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .main-body-content { padding: 10px 16px 30px 16px; }
 
@@ -142,18 +167,18 @@
         .slide-out { opacity: 0; transform: translateY(15px); }
         .slide-in { opacity: 1; transform: translateY(0); }
 
-        /* Modern Borderless Section Titles */
+        /* Modern Section Titles */
         .section-left-title {
-            margin: 20px 0 14px 0;
+            margin: 25px 0 14px 0;
             display: flex;
             flex-direction: column;
         }
         .section-left-title h3 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
             text-transform: uppercase;
-            color: #fff;
-            letter-spacing: 0.8px;
+            color: var(--accent-cream);
+            letter-spacing: 1px;
         }
         .section-left-title p {
             font-size: 10px;
@@ -170,7 +195,7 @@
         }
         .circle-category-card {
             background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             height: 42px;
             display: flex;
@@ -179,15 +204,14 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .circle-category-card:active { transform: scale(0.95); background-color: rgba(255, 42, 84, 0.1); border-color: var(--neon-crimson); }
-        .circle-category-card img { display: none; } /* ဖယ်ထုတ်ပြီး Flat Clean UI လုပ်ထားသည် */
+        .circle-category-card:active { transform: scale(0.95); background-color: rgba(223, 197, 179, 0.1); border-color: var(--accent-cream); }
         .circle-category-card span {
             font-size: 11px;
             font-weight: 700;
             color: var(--text-main);
         }
 
-        /* Premium Borderless Cards (TikTok Grid Style) */
+        /* Premium Borderless Cards */
         .shakes-style-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -202,7 +226,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.4);
             transition: transform 0.2s;
         }
         .shake-premium-card:active { transform: scale(0.98); }
@@ -210,7 +234,7 @@
         .shake-thumb-placeholder {
             width: 100%;
             aspect-ratio: 16/10; 
-            background-color: #090a0f;
+            background-color: #0f0d0c;
             overflow: hidden;
             position: relative;
         }
@@ -219,14 +243,13 @@
         .adult-badge {
             position: absolute;
             top: 6px; left: 6px;
-            background: var(--neon-crimson);
-            color: #fff;
+            background: var(--accent-cream);
+            color: #1a1615;
             font-size: 8px;
             font-weight: 900;
             padding: 2px 6px;
             border-radius: 4px;
             z-index: 5;
-            letter-spacing: 0.5px;
         }
         .shake-card-info {
             padding: 10px;
@@ -251,13 +274,12 @@
             justify-content: space-between;
             align-items: center;
         }
-        .shake-price { font-size: 9px; color: var(--text-muted); font-weight: 500; }
+        .shake-price { font-size: 9px; color: var(--text-muted); }
         .shake-watch-btn {
-            color: var(--neon-crimson);
+            color: var(--accent-cream);
             font-size: 9px;
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
         /* Modern List Layout */
@@ -278,7 +300,7 @@
         }
         .blog-media-left {
             width: 80px;
-            height: 55px; /* List Thumbnail ကို အချိုးကျ ပြင်ဆင်ထားသည် */
+            height: 55px;
             border-radius: 6px;
             overflow: hidden;
             flex-shrink: 0;
@@ -311,8 +333,8 @@
             border-radius: 16px;
             margin-bottom: 25px;
             overflow: hidden;
-            border: 1px solid rgba(255, 42, 84, 0.2);
-            box-shadow: 0 0 25px var(--neon-glow);
+            border: 1px solid rgba(223, 197, 179, 0.2);
+            box-shadow: 0 0 25px rgba(223, 197, 179, 0.15);
         }
         .video-player-outer-box {
             width: 100%;
@@ -322,37 +344,37 @@
         .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
         .cinema-title-heading { font-size: 12px; font-weight: 600; color: #fff; padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); }
 
-        /* Premium Minimalist Notice Dialog */
+        /* Premium Notice Dialog */
         .notice-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(4, 5, 7, 0.9); z-index: 9999;
+            background: rgba(15, 13, 12, 0.95); z-index: 9999;
             display: flex; justify-content: center; align-items: center;
             opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
         .notice-overlay.show { opacity: 1; visibility: visible; }
         .notice-box {
             width: 86%; max-width: 340px; background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px;
             padding: 24px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.7);
             transform: scale(0.9); transition: transform 0.3s ease;
         }
         .notice-overlay.show .notice-box { transform: scale(1); }
-        .notice-title { font-size: 15px; color: #fff; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .notice-title { font-size: 15px; color: #fff; font-weight: 800; margin-bottom: 12px; }
         .notice-text { font-size: 12px; color: var(--text-glass); line-height: 1.6; margin-bottom: 22px; }
         
         .notice-btn {
-            width: 100%; background: var(--neon-crimson); color: #fff;
+            width: 100%; background: var(--accent-cream); color: #1a1615;
             border: none; padding: 12px; border-radius: 25px; font-size: 12px; font-weight: bold;
-            text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 12px var(--neon-glow);
+            text-transform: uppercase; cursor: pointer;
         }
 
-        /* Clean Footer dark interface */
+        /* Footer */
         footer {
-            background-color: #050608;
+            background-color: #0c0a09;
             color: var(--text-muted);
             padding: 30px 20px;
             margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
         .footer-grid-4col {
             display: grid;
@@ -366,7 +388,6 @@
             font-weight: 700;
             margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         .footer-block ul { list-style: none; }
         .footer-block ul li { margin-bottom: 6px; }
@@ -381,10 +402,10 @@
             padding-top: 15px;
             text-align: center;
             font-size: 10px;
-            color: #475569;
+            color: #574c49;
         }
 
-        .loader { display: block; margin: 20px auto; border: 2px solid rgba(255,255,255,0.03); border-top: 2px solid var(--neon-crimson); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
+        .loader { display: block; margin: 20px auto; border: 2px solid rgba(255,255,255,0.03); border-top: 2px solid var(--accent-cream); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
@@ -419,9 +440,12 @@
         </div>
     </div>
 
+    <!-- 1000017011.jpg Wave Content Layout -->
     <div class="hero-banner-section">
-        <div class="hero-sub" id="animatedTitle"></div>
-        <div class="hero-main-title" id="animatedBody"></div>
+        <div class="hero-text-wrapper">
+            <div class="hero-sub" id="animatedTitle"></div>
+            <div class="hero-main-title" id="animatedBody"></div>
+        </div>
     </div>
 
     <div class="main-body-content">
@@ -515,8 +539,9 @@
     
     let loadedVideoIds = new Set(); 
 
-    const titleText = "ပရီမီယမ် ရသခံစားမှု့";
-    const bodyText = "မြန်မာကားများတင်သာမက VIP , LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ အဆင့်မြင့်မြင့် ကြည့်ရှုနိူင်ပြီ!";
+    // 1000017011.jpg ထဲက Title ပုံစံ ခပ်ပြတ်ပြတ် ခေါင်းစဉ်များ
+    const titleText = "PREMIUM QUALITY";
+    const bodyText = "BURMA YOYAR";
 
     document.addEventListener("DOMContentLoaded", () => {
         startEngine();
@@ -546,9 +571,9 @@
             if (titleIdx < titleText.length) {
                 titleContainer.innerHTML += titleText.charAt(titleIdx);
                 titleIdx++;
-                setTimeout(typeTitle, 90);
+                setTimeout(typeTitle, 80);
             } else {
-                setTimeout(typeBody, 400);
+                setTimeout(typeBody, 300);
             }
         }
 
@@ -556,7 +581,7 @@
             if (bodyIdx < bodyText.length) {
                 bodyContainer.innerHTML += bodyText.charAt(bodyIdx);
                 bodyIdx++;
-                setTimeout(typeBody, 40);
+                setTimeout(typeBody, 60);
             }
         }
         typeTitle();
@@ -646,7 +671,7 @@
                 </div>
                 <div class="blog-info-right">
                     <h4>${v.title}</h4>
-                    <p>Views: ${parseInt(v.views).toLocaleString()} hits.</p>
+                    <p>Views: ${parseInt(v.views).toLocaleString()}</p>
                 </div>
             `;
             blogsColumn.appendChild(item);
