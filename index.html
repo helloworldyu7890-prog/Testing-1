@@ -11,11 +11,11 @@
 
     <style>
         :root {
-            /* 1000017011.jpg ထဲက Warm Cream & Dark Coffee Color Palette ကို အခြေခံထားသည် */
-            --app-bg: #1a161         /* နက်မှောင်သော ကော်ဖီရင့်ရောင် */
-            --card-bg: #26201e;         /* ကတ်များအတွက် Charcoal Coffee ရောင် */
-            --accent-cream: #dfc5b3;    /* ပုံထဲကလို နူးညံ့သော Cream ရောင် */
-            --accent-gold: #c5a880;     /* စာသားများအတွက် အလင်းရောင် */
+            /* 1000017011.jpg ထဲက Warm Cream & Dark Coffee Color Palette */
+            --app-bg: #1a1615;          
+            --card-bg: #26201e;         
+            --accent-cream: #dfc5b3;    
+            --accent-gold: #c5a880;     
             --text-main: #f5ebe6;
             --text-muted: #8e817d;
             --text-glass: rgba(255, 255, 255, 0.7);
@@ -126,39 +126,35 @@
             overflow: hidden;
         }
 
-        /* ပုံထဲကလို အမည်းရောင် Wave ပုံစံ မျဉ်းကွေး Background ဖန်တီးမှု */
+        /* 1000017011.jpg ထဲက မျဉ်းကွေးလှိုင်းပုံစံ Background */
         .hero-banner-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-color: #1a1615;
-            /* 1000017011.jpg ထဲက မျဉ်းကွေးလှိုင်းပုံစံအတိုင်း ပုံဖော်ထားသော Clip Path */
             clip-path: polygon(0 0, 100% 0, 100% 75%, 65% 60%, 35% 85%, 0 70%);
             z-index: 1;
         }
         
         .hero-text-wrapper {
             position: relative;
-            z-index: 2; /* စာသားများကို Wave အပေါ်တင်ရန် */
-            max-width: 80%;
+            z-index: 2; 
+            max-width: 90%;
         }
 
-        /* 1000017011.jpg ပါ ခေါင်းစဉ်စတိုင် (FRESHLY ROASTED COFFEE) */
+        /* စာသားများအတွက် Typography */
         .hero-sub {
             font-size: 12px;
-            color: #8e817d;
-            margin-bottom: 2px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         .hero-main-title { 
-            font-size: 26px; 
-            font-weight: 800; 
-            line-height: 1.2; 
-            color: var(--accent-cream); 
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 13px; 
+            font-weight: 400; 
+            line-height: 1.5; 
+            color: var(--text-glass); 
         }
 
         .main-body-content { padding: 10px 16px 30px 16px; }
@@ -186,7 +182,7 @@
             margin-top: 2px;
         }
 
-        /* Flat Pill Pill-style Categories */
+        /* Flat Categories */
         .top-categories-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -211,7 +207,7 @@
             color: var(--text-main);
         }
 
-        /* Premium Borderless Cards */
+        /* Premium Grid Cards */
         .shakes-style-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -539,9 +535,9 @@
     
     let loadedVideoIds = new Set(); 
 
-    // 1000017011.jpg ထဲက Title ပုံစံ ခပ်ပြတ်ပြတ် ခေါင်းစဉ်များ
-    const titleText = "PREMIUM QUALITY";
-    const bodyText = "BURMA YOYAR";
+    // ယခင်မူလ မြန်မာစာသားများကို ပြန်လည်ထိန်းသိမ်းထားသည်
+    const titleText = "ပရီမီယမ် ရသခံစားမှု့";
+    const bodyText = "မြန်မာကားများတင်သာမက VIP , LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ ကြည့်ရှုနိူင်ပြီ!";
 
     document.addEventListener("DOMContentLoaded", () => {
         startEngine();
@@ -571,9 +567,9 @@
             if (titleIdx < titleText.length) {
                 titleContainer.innerHTML += titleText.charAt(titleIdx);
                 titleIdx++;
-                setTimeout(typeTitle, 80);
+                setTimeout(typeTitle, 90);
             } else {
-                setTimeout(typeBody, 300);
+                setTimeout(typeBody, 400);
             }
         }
 
@@ -581,7 +577,7 @@
             if (bodyIdx < bodyText.length) {
                 bodyContainer.innerHTML += bodyText.charAt(bodyIdx);
                 bodyIdx++;
-                setTimeout(typeBody, 60);
+                setTimeout(typeBody, 40);
             }
         }
         typeTitle();
