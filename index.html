@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PRIVÉ | Premium Restricted Streaming</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#d0c5af",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary-fixed": "#241a00",
+                        "on-primary-container": "#554300",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#c7c6c4",
+                        "on-secondary-container": "#b5b5b3",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "inverse-primary": "#735c00",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-container": "#b4b2b2",
+                        "outline": "#99907c",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "primary": "#f2ca50",
+                        "on-tertiary": "#313030",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "primary-container": "#d4af37",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-dim": "#131313",
+                        "secondary-container": "#464746",
+                        "surface-tint": "#e9c349",
+                        "secondary": "#c7c6c4",
+                        "primary-fixed": "#ffe088",
+                        "on-tertiary-container": "#454544",
+                        "on-secondary-fixed-variant": "#464746",
+                        "on-error": "#690005",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-fixed-variant": "#574500",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#303130",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#d0cdcd",
+                        "on-tertiary-fixed-variant": "#474746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "48px",
+                        "section-gap": "64px",
+                        "unit": "8px",
+                        "container-padding-mobile": "20px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-overlay {
+            background: rgba(13, 13, 13, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .milled-border {
+            border: 1px solid rgba(227, 226, 224, 0.1);
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .active-glow {
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+        .velvet-gradient {
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-on-primary-fixed velvet-gradient">
+<!-- Navigation Drawer -->
+<div class="fixed inset-y-0 left-0 z-[60] h-full w-4/5 max-w-sm bg-surface-container-lowest translate-x-[-100%] transition-transform duration-500 ease-in-out shadow-2xl flex flex-col p-gutter" id="nav-drawer">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full border border-primary/20 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtgoj7ILts-ieTikjnTZV-k6DlxYBVk629tzBQFHnAsHHoGA2SZzYq4XWqZ5ARhiLLXX5YzK7OZT2BeuH3IN39CltDB07uPeOWw1eJuwW_zHlM4Ql7OTYaCHr_wziUHSEJUXY7lKxEnBSptjPE7w7gSz-tVZkfJfHr6goJluFIhDzY4AjeGvVmCnjucSCOJgHPezqdwZq52-RUEYSikXzeRuRw5l4VslIWKmbdBN9aEM_66Gabl2iZSAQY"/>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-primary font-bold">Alexander Vault</p>
+<p class="text-[12px] text-on-surface-variant/70 uppercase tracking-tighter">Platinum Member • Verified 18+</p>
+</div>
+<button class="text-on-surface-variant" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-4 p-4 text-primary bg-primary/10 font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">workspace_premium</span>
+<span class="font-body-md text-body-md">Premium Lounge</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-body-md text-body-md">Watchlist</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md text-body-md">Security</span>
+</a>
+<div class="pt-8 mt-auto">
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md text-body-md">Logout</span>
+</a>
+</div>
+</nav>
+</div>
+<!-- Drawer Backdrop -->
+<div class="fixed inset-0 z-[55] bg-black/80 backdrop-blur-sm hidden" id="drawer-backdrop" onclick="toggleDrawer()"></div>
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-primary/10 shadow-[0_4px_20px_rgba(212,175,55,0.1)] h-16 flex justify-between items-center px-container-padding-mobile">
+<button class="text-primary active:scale-95 duration-200" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile tracking-[0.3em] text-primary uppercase pl-4">PRIVÉ</h1>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtgoj7ILts-ieTikjnTZV-k6DlxYBVk629tzBQFHnAsHHoGA2SZzYq4XWqZ5ARhiLLXX5YzK7OZT2BeuH3IN39CltDB07uPeOWw1eJuwW_zHlM4Ql7OTYaCHr_wziUHSEJUXY7lKxEnBSptjPE7w7gSz-tVZkfJfHr6goJluFIhDzY4AjeGvVmCnjucSCOJgHPezqdwZq52-RUEYSikXzeRuRw5l4VslIWKmbdBN9aEM_66Gabl2iZSAQY"/>
+</div>
+</header>
+<main class="pt-16 pb-24 overflow-y-auto min-h-screen">
+<!-- Hero Section -->
+<section class="relative w-full aspect-[4/5] md:aspect-[16/9] overflow-hidden">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLtHEjZuaInjfrabnyF3f60YsNFuKCHdb7pzlVeHfn0KzcCCfTFpPexazJ7gd81Qr5Wq8La52Xoh_dmASd6ebDlOlNJOsg7vGwof2j9yyd22oHJnzAI8GCqW_5t2oAMXfbjNeGYSmhGzkKj21tbcXmReZoxiOUvvQ7dOt0iTNiH-Cwz--YhYZ52KKuIk-OOSOF6wKmFlr0c1x84J4_yBmNqOnp4lcanx_eqowGCS44hYbsb0tQrOYpCHPXr_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-0 w-full p-container-padding-mobile space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary text-on-primary-fixed rounded-full shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[14px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm uppercase tracking-tighter">Premium Original</span>
+</div>
+<h2 class="font-display-lg text-[42px] leading-[1.1] text-white drop-shadow-2xl font-extrabold">The Masterclass:<br/>The Art of Elegance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[85%] leading-relaxed">Join creative visionaries for an unfiltered exploration of aesthetics and high-fidelity living.</p>
+<div class="flex items-center gap-4 pt-4">
+<button class="flex-1 h-14 bg-primary text-on-primary-fixed rounded-full font-bold uppercase tracking-[0.15em] active:scale-95 transition-all shadow-[0_0_20px_rgba(242,202,80,0.3)]">
+                        Watch Now
+                    </button>
+<button class="w-14 h-14 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center text-white active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Live Now Horizontal Row -->
+<section class="mt-section-gap">
+<div class="flex items-center justify-between px-container-padding-mobile mb-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    Live Now
+                </h3>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">See All</span>
+</div>
+<div class="flex gap-4 overflow-x-auto px-container-padding-mobile hide-scrollbar pb-4">
+<!-- Live Card 1 -->
+<div class="flex-none w-[300px] group relative rounded-xl overflow-hidden milled-border">
+<div class="aspect-video w-full relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLsharLIjg18bkLSLejN-11i50mG9k5CA4rkGpDKFw7a7CK_v1e8SUpkoS-TZm9C4xHOqsdDbG0XOJAb6GapzsWIqVp8SQSF97ExawPrVJsbWswmGb1BJjVZx39Kj-waL3F_MTr0oitXKnc71R2021RhyUThYEOImQBvSXemzEI2GYPO2FRFkR18bvd_HGdmolKjCuUX09whnCYDS8nDievDIQoXEUNbv6NyUQ1hHBG8goomcL6bbbDwCJmu"/>
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute top-3 left-3 px-2 py-1 bg-error text-white font-label-sm text-[10px] rounded uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] animate-pulse">sensors</span> LIVE
+                        </div>
+<div class="absolute bottom-3 left-3">
+<h4 class="font-bold text-white text-sm drop-shadow-md">The Gallery: Midnight Session</h4>
+<p class="text-[10px] text-white/80 uppercase">12.4K Watching</p>
+</div>
+</div>
+</div>
+<!-- Live Card 2 -->
+<div class="flex-none w-[300px] group relative rounded-xl overflow-hidden milled-border">
+<div class="aspect-video w-full relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvmlrTFJi4UzOx_uGvCMPqWj8rXWks_Rly3cemdz5dS6k474qJ5N730EnKfQX3EReOMyIlnRP_w-LrR6SRET4zOG1nlugEJ7NBHKvC6SbqlBI9_r3xhnNItEdlrFEP8nryOqV1S2_BUXKgr7UUm25A0yih4RUI0sQQ_7upXqWgw23JlaaD8MtsVIh3yU6ROWYLtuWlt_Ww8JLkjNg3n6ODgwTvOVIEhG68q7F4SDUs98DOkErQGt84fhgiE"/>
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute top-3 left-3 px-2 py-1 bg-error text-white font-label-sm text-[10px] rounded uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] animate-pulse">sensors</span> LIVE
+                        </div>
+<div class="absolute bottom-3 left-3">
+<h4 class="font-bold text-white text-sm drop-shadow-md">Velvet Lounge: House Remix</h4>
+<p class="text-[10px] text-white/80 uppercase">8.9K Watching</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- New Releases Portrait Scroller -->
+<section class="mt-8">
+<div class="px-container-padding-mobile mb-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-wider">New Releases</h3>
+</div>
+<div class="flex gap-4 overflow-x-auto px-container-padding-mobile hide-scrollbar">
+<!-- Portrait Card 1 -->
+<div class="flex-none w-36 space-y-2">
+<div class="aspect-[2/3] rounded-lg overflow-hidden border border-white/10 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLvmlrTFJi4UzOx_uGvCMPqWj8rXWks_Rly3cemdz5dS6k474qJ5N730EnKfQX3EReOMyIlnRP_w-LrR6SRET4zOG1nlugEJ7NBHKvC6SbqlBI9_r3xhnNItEdlrFEP8nryOqV1S2_BUXKgr7UUm25A0yih4RUI0sQQ_7upXqWgw23JlaaD8MtsVIh3yU6ROWYLtuWlt_Ww8JLkjNg3n6ODgwTvOVIEhG68q7F4SDUs98DOkErQGt84fhgiE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<p class="font-bold text-[13px] line-clamp-1">Obsidian Night</p>
+</div>
+<!-- Portrait Card 2 -->
+<div class="flex-none w-36 space-y-2">
+<div class="aspect-[2/3] rounded-lg overflow-hidden border border-white/10 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLsharLIjg18bkLSLejN-11i50mG9k5CA4rkGpDKFw7a7CK_v1e8SUpkoS-TZm9C4xHOqsdDbG0XOJAb6GapzsWIqVp8SQSF97ExawPrVJsbWswmGb1BJjVZx39Kj-waL3F_MTr0oitXKnc71R2021RhyUThYEOImQBvSXemzEI2GYPO2FRFkR18bvd_HGdmolKjCuUX09whnCYDS8nDievDIQoXEUNbv6NyUQ1hHBG8goomcL6bbbDwCJmu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<p class="font-bold text-[13px] line-clamp-1">The Gold Room</p>
+</div>
+<!-- Portrait Card 3 -->
+<div class="flex-none w-36 space-y-2">
+<div class="aspect-[2/3] rounded-lg overflow-hidden border border-white/10 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLtHEjZuaInjfrabnyF3f60YsNFuKCHdb7pzlVeHfn0KzcCCfTFpPexazJ7gd81Qr5Wq8La52Xoh_dmASd6ebDlOlNJOsg7vGwof2j9yyd22oHJnzAI8GCqW_5t2oAMXfbjNeGYSmhGzkKj21tbcXmReZoxiOUvvQ7dOt0iTNiH-Cwz--YhYZ52KKuIk-OOSOF6wKmFlr0c1x84J4_yBmNqOnp4lcanx_eqowGCS44hYbsb0tQrOYpCHPXr_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<p class="font-bold text-[13px] line-clamp-1">Velvet Void</p>
+</div>
+<!-- Portrait Card 4 -->
+<div class="flex-none w-36 space-y-2">
+<div class="aspect-[2/3] rounded-lg overflow-hidden border border-white/10 relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida/AP1WRLvmlrTFJi4UzOx_uGvCMPqWj8rXWks_Rly3cemdz5dS6k474qJ5N730EnKfQX3EReOMyIlnRP_w-LrR6SRET4zOG1nlugEJ7NBHKvC6SbqlBI9_r3xhnNItEdlrFEP8nryOqV1S2_BUXKgr7UUm25A0yih4RUI0sQQ_7upXqWgw23JlaaD8MtsVIh3yU6ROWYLtuWlt_Ww8JLkjNg3n6ODgwTvOVIEhG68q7F4SDUs98DOkErQGt84fhgiE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<p class="font-bold text-[13px] line-clamp-1">Pure PRIVÉ</p>
+</div>
+</div>
+</section>
+<!-- Vertical Content Grid (The Collection) -->
+<section class="px-container-padding-mobile mt-section-gap space-y-gutter">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface uppercase tracking-wider">The Collection</h3>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Sort</span>
+</div>
+<!-- Content Card 1 -->
+<div class="group relative bg-surface-container-high rounded-xl overflow-hidden milled-border transition-all duration-300 active:scale-[0.98]">
+<div class="aspect-video w-full relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLsharLIjg18bkLSLejN-11i50mG9k5CA4rkGpDKFw7a7CK_v1e8SUpkoS-TZm9C4xHOqsdDbG0XOJAb6GapzsWIqVp8SQSF97ExawPrVJsbWswmGb1BJjVZx39Kj-waL3F_MTr0oitXKnc71R2021RhyUThYEOImQBvSXemzEI2GYPO2FRFkR18bvd_HGdmolKjCuUX09whnCYDS8nDievDIQoXEUNbv6NyUQ1hHBG8goomcL6bbbDwCJmu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2 py-1 bg-error/90 text-on-error font-label-sm text-[10px] rounded border border-error/50">18+</span>
+<span class="px-2 py-1 bg-black/60 backdrop-blur-md text-primary font-label-sm text-[10px] rounded border border-primary/30 uppercase">4K HDR</span>
+</div>
+</div>
+<div class="p-5 space-y-1">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Featured Exclusive</p>
+<h4 class="font-headline-lg-mobile text-[18px] text-on-surface font-extrabold">The Vault: Private Screening</h4>
+<p class="font-label-sm text-[11px] text-on-surface-variant/70 uppercase">Streaming Now • Limited Access Collection</p>
+</div>
+</div>
+<!-- Content Card 2 -->
+<div class="group relative bg-surface-container-high rounded-xl overflow-hidden milled-border transition-all duration-300 active:scale-[0.98]">
+<div class="aspect-video w-full relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AP1WRLvmlrTFJi4UzOx_uGvCMPqWj8rXWks_Rly3cemdz5dS6k474qJ5N730EnKfQX3EReOMyIlnRP_w-LrR6SRET4zOG1nlugEJ7NBHKvC6SbqlBI9_r3xhnNItEdlrFEP8nryOqV1S2_BUXKgr7UUm25A0yih4RUI0sQQ_7upXqWgw23JlaaD8MtsVIh3yU6ROWYLtuWlt_Ww8JLkjNg3n6ODgwTvOVIEhG68q7F4SDUs98DOkErQGt84fhgiE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2 py-1 bg-primary text-on-primary-fixed font-label-sm text-[10px] rounded uppercase font-bold">Premium</span>
+</div>
+</div>
+<div class="p-5 space-y-1">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Series</p>
+<h4 class="font-headline-lg-mobile text-[18px] text-on-surface font-extrabold">Midnight Gallery Chronicles</h4>
+<p class="font-label-sm text-[11px] text-on-surface-variant/70 uppercase">High-End Production • 12 Episodes</p>
+</div>
+</div>
+</section>
+<!-- Upgrade Membership Banner -->
+<section class="px-container-padding-mobile mt-section-gap pb-12">
+<div class="relative w-full p-8 bg-surface-container-lowest border-2 border-primary/40 rounded-2xl flex flex-col items-center text-center space-y-6 shadow-[0_12px_40px_rgba(242,202,80,0.15)] overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary-fixed flex items-center justify-center border border-primary/50 shadow-[0_0_20px_rgba(242,202,80,0.4)] relative z-10">
+<span class="material-symbols-outlined text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-display-lg text-[28px] leading-tight text-white mb-2 font-bold tracking-tight">Elevate Your Access</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">Join the Inner Circle for uncensored masterclasses, live event priority, and 8K streaming.</p>
+</div>
+<button class="relative z-10 w-full h-14 bg-transparent border-2 border-primary text-primary font-bold uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all hover:bg-primary hover:text-on-primary-fixed">
+                    View Benefits
+                </button>
+<p class="text-[10px] text-on-surface-variant/50 uppercase tracking-widest">Membership upgrades start at $29/mo</p>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 pb-safe px-6 bg-background/90 backdrop-blur-3xl border-t border-primary/20 shadow-[0_-10px_40px_rgba(0,0,0,0.9)]">
+<a class="flex flex-col items-center justify-center text-primary group" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-3xl transition-all group-active:scale-90" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_#f2ca50]"></div>
+</div>
+<span class="font-label-sm text-[10px] uppercase tracking-[0.1em] mt-1.5 font-bold">Browse</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-3xl transition-all group-active:scale-90">sensors</span>
+<span class="font-label-sm text-[10px] uppercase tracking-[0.1em] mt-1.5">Live</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-3xl transition-all group-active:scale-90">bookmark</span>
+<span class="font-label-sm text-[10px] uppercase tracking-[0.1em] mt-1.5">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined text-3xl transition-all group-active:scale-90">person</span>
+<span class="font-label-sm text-[10px] uppercase tracking-[0.1em] mt-1.5">Account</span>
+</a>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('nav-drawer');
+            const backdrop = document.getElementById('drawer-backdrop');
+            
+            const isOpen = drawer.style.transform === 'translateX(0%)';
+            
+            if (isOpen) {
+                drawer.style.transform = 'translateX(-100%)';
+                backdrop.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            } else {
+                drawer.style.transform = 'translateX(0%)';
+                backdrop.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Auto-close drawer on link click
+        document.querySelectorAll('#nav-drawer a').forEach(link => {
+            link.addEventListener('click', toggleDrawer);
+        });
+    </script>
+</body></html>
