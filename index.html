@@ -1,165 +1,141 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-    <title>PRIVÉ | Premium Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "background": "#131313",
-                        "surface": "#131313",
-                        "primary": "#f2ca50",
-                        "primary-container": "#d4af37",
-                        "on-primary-fixed": "#241a00",
-                        "surface-container-high": "#2a2a2a",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-surface": "#e5e2e1",
-                        "on-surface-variant": "#d0c5af",
-                        "error": "#ffb4ab"
-                    },
-                    "fontFamily": {
-                        "body-md": ["Manrope"],
-                        "label-sm": ["JetBrains Mono"]
-                    }
-                }
-            }
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BurmaYoYar-HD | Modern Glass</title>
     <style>
-        body {
-            background-color: #131313;
-            color: #e5e2e1;
-            font-family: 'Manrope', sans-serif;
-            overflow-x: hidden;
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --primary-accent: #6C5CE7;
+            --text-white: #FFFFFF;
+            --app-dark: #0A0A0A;
+            --gold: #FFD700;
         }
-        .milled-border { border: 1px solid rgba(227, 226, 224, 0.1); }
-        .velvet-gradient { background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%); }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--app-dark); color: var(--text-white); }
+        
+        .app-container { max-width: 480px; margin: auto; padding: 20px; min-height: 100vh; }
+        
+        .brand-logo { font-size: 24px; font-weight: 800; background: linear-gradient(to right, #6C5CE7, #A8A4E6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; text-align: center; }
+
+        .search-box { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 30px; padding: 12px 20px; margin-bottom: 20px; display: flex; }
+        .search-box input { flex-grow: 1; background: transparent; border: none; color: white; outline: none; }
+        .search-box button { background: none; border: none; color: var(--gold); cursor: pointer; font-weight: bold; }
+
+        .cat-bar { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 10px; }
+        .cat-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: white; padding: 8px 16px; border-radius: 20px; font-size: 12px; cursor: pointer; white-space: nowrap; }
+
+        .new-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .video-card { background: var(--glass-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--glass-border); cursor: pointer; transition: 0.3s; }
+        .video-card:active { transform: scale(0.95); }
+        .video-card img { width: 100%; height: 120px; object-fit: cover; }
+        .video-title { font-size: 11px; padding: 8px; line-height: 1.3; height: 35px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+        #theaterBox { display: none; margin-bottom: 20px; }
+        .video-player { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; }
+        .video-player iframe { width: 100%; height: 100%; border: none; }
+        
+        .loader { text-align: center; padding: 20px; color: var(--gold); }
     </style>
 </head>
-<body class="selection:bg-primary selection:text-on-primary-fixed velvet-gradient">
+<body>
 
-<!-- Navigation Drawer (ဘယ်ဘက် Slide Menu) -->
-<div class="fixed inset-y-0 left-0 z-[60] h-full w-4/5 max-w-sm bg-surface-container-lowest translate-x-[-100%] transition-transform duration-500 ease-in-out shadow-2xl flex flex-col p-6" id="nav-drawer">
-    <div class="flex items-center gap-4 mb-8">
-        <div class="w-12 h-12 rounded-full border border-primary/20 overflow-hidden bg-primary/10 flex items-center justify-center">
-            <span class="material-symbols-outlined text-primary">person</span>
-        </div>
-        <div class="flex-1">
-            <p class="font-body-md text-base text-primary font-bold">Alexander Vault</p>
-            <p class="text-[12px] text-on-surface-variant/70 uppercase tracking-tighter">Premium Member</p>
-        </div>
-        <button class="text-on-surface-variant" onclick="toggleDrawer()">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-    </div>
-    <nav class="space-y-1">
-        <a class="flex items-center gap-4 p-4 text-primary bg-primary/10 font-bold rounded-lg transition-all" href="#">
-            <span class="material-symbols-outlined">dashboard</span>
-            <span>Dashboard</span>
-        </a>
-        <a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all" href="#">
-            <span class="material-symbols-outlined">history</span>
-            <span>History</span>
-        </a>
-        <a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all" href="#">
-            <span class="material-symbols-outlined">settings</span>
-            <span>Settings</span>
-        </a>
-    </nav>
-</div>
-<div class="fixed inset-0 z-[55] bg-black/80 backdrop-blur-sm hidden" id="drawer-backdrop" onclick="toggleDrawer()"></div>
-
-<!-- Top Header App Bar -->
-<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-primary/10 h-16 flex justify-between items-center px-6">
-    <button class="text-primary active:scale-95 duration-200" onclick="toggleDrawer()">
-        <span class="material-symbols-outlined text-3xl">menu</span>
-    </button>
-    <h1 class="text-xl tracking-[0.3em] text-primary uppercase font-bold pl-4">PRIVÉ</h1>
-    <div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center">
-        <span class="material-symbols-outlined text-primary text-xl">account_circle</span>
-    </div>
-</header>
-
-<main class="pt-20 pb-24 px-6 min-h-screen max-w-md mx-auto space-y-6">
+<div class="app-container">
+    <div class="brand-logo" onclick="location.reload()">BurmaYoYar HD</div>
     
-    <!-- Hero / Welcome Banner -->
-    <section class="relative w-full rounded-2xl overflow-hidden milled-border bg-gradient-to-br from-surface-container-high to-surface-container-lowest p-6 space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary text-on-primary-fixed rounded-full">
-            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-            <span class="text-xs uppercase tracking-tighter font-bold">Welcome Back</span>
+    <div class="search-box">
+        <input type="text" id="userSearchInput" placeholder="ရှာဖွေရန်...">
+        <button onclick="triggerSearch()">ရှာပါ</button>
+    </div>
+
+    <div class="cat-bar">
+        <button class="cat-btn" onclick="fetchNewCategory('myanmar')">Myanmar</button>
+        <button class="cat-btn" onclick="fetchNewCategory('japan')">Japan</button>
+        <button class="cat-btn" onclick="fetchNewCategory('asian')">Asian</button>
+    </div>
+
+    <div id="theaterBox">
+        <div class="video-player">
+            <iframe id="videoIframe" src=""></iframe>
         </div>
-        <h2 class="text-2xl font-extrabold text-white leading-tight">အဆင်သင့် အသုံးပြုနိုင်ပါပြီ</h2>
-        <p class="text-sm text-on-surface-variant leading-relaxed">ဤနေရာတွင် မိမိစိတ်ကြိုက် လုပ်ငန်းစဉ်များကို စိတ်ချရပြီး စနစ်တကျ လုပ်ဆောင်နိုင်ပါတယ်ဗျာ။</p>
-    </section>
+        <p id="videoTitle" style="margin-top:10px; font-size: 13px;"></p>
+    </div>
 
-    <!-- Action Cards (လုပ်ဆောင်ချက် ခလုတ်များ) -->
-    <section class="space-y-4">
-        <div class="flex items-center justify-between">
-            <h3 class="text-base text-on-surface uppercase tracking-wider font-bold">Main Features</h3>
-        </div>
-
-        <!-- ကတ်တစ်ခုချင်းစီနေရာမှာ မိမိ Bot သို့မဟုတ် App ရဲ့ လုပ်ဆောင်ချက်တွေ ပြောင်းထည့်ပါ -->
-        <div class="group relative bg-surface-container-high rounded-xl p-5 milled-border transition-all duration-300 active:scale-[0.98] flex items-center justify-between">
-            <div class="space-y-1">
-                <p class="text-xs text-primary uppercase font-bold tracking-widest">Feature 01</p>
-                <h4 class="text-lg text-on-surface font-extrabold">လုပ်ဆောင်ချက် (၁)</h4>
-                <p class="text-xs text-on-surface-variant/70">အသေးစိတ် ဖော်ပြချက်ကို ဤနေရာတွင် ရေးရန်</p>
-            </div>
-            <span class="material-symbols-outlined text-primary text-3xl">arrow_forward_ios</span>
-        </div>
-
-        <div class="group relative bg-surface-container-high rounded-xl p-5 milled-border transition-all duration-300 active:scale-[0.98] flex items-center justify-between">
-            <div class="space-y-1">
-                <p class="text-xs text-primary uppercase font-bold tracking-widest">Feature 02</p>
-                <h4 class="text-lg text-on-surface font-extrabold">လုပ်ဆောင်ချက် (၂)</h4>
-                <p class="text-xs text-on-surface-variant/70">အသေးစိတ် ဖော်ပြချက်ကို ဤနေရာတွင် ရေးရန်</p>
-            </div>
-            <span class="material-symbols-outlined text-primary text-3xl">arrow_forward_ios</span>
-        </div>
-    </section>
-
-</main>
-
-<!-- Bottom Navigation Bar (အောက်ခြေ Menu) -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-background/90 backdrop-blur-3xl border-t border-primary/20 shadow-[0_-10px_40px_rgba(0,0,0,0.9)]">
-    <a class="flex flex-col items-center justify-center text-primary" href="#">
-        <span class="material-symbols-outlined text-2xl">explore</span>
-        <span class="text-[10px] uppercase mt-1 font-bold">Home</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
-        <span class="material-symbols-outlined text-2xl">history</span>
-        <span class="text-[10px] uppercase mt-1">History</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
-        <span class="material-symbols-outlined text-2xl">person</span>
-        <span class="text-[10px] uppercase mt-1">Account</span>
-    </a>
-</nav>
+    <div class="new-content-grid" id="shakesGrid"></div>
+    <div class="loader" id="networkLoader" style="display:none;">Loading...</div>
+</div>
 
 <script>
-    function toggleDrawer() {
-        const drawer = document.getElementById('nav-drawer');
-        const backdrop = document.getElementById('drawer-backdrop');
-        const isOpen = drawer.style.transform === 'translateX(0%)';
-        
-        if (isOpen) {
-            drawer.style.transform = 'translateX(-100%)';
-            backdrop.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        } else {
-            drawer.style.transform = 'translateX(0%)';
-            backdrop.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+    const API_URL = 'https://www.eporner.com/api/v2/video/search/';
+    let currentKeyword = 'myanmar';
+    let currentPage = 1;
+    let loading = false;
+    let loadedVideoIds = new Set();
+
+    async function loadContentFeed(keyword, page, append = false) {
+        if (loading) return;
+        loading = true;
+        document.getElementById("networkLoader").style.display = "block";
+
+        try {
+            const res = await fetch(`${API_URL}?query=${encodeURIComponent(keyword)}&per_page=20&page=${page}`);
+            const data = await res.json();
+
+            if (!append) document.getElementById("shakesGrid").innerHTML = "";
+
+            data.videos.forEach(v => {
+                if (!loadedVideoIds.has(v.id)) {
+                    loadedVideoIds.add(v.id);
+                    const div = document.createElement("div");
+                    div.className = "video-card";
+                    div.onclick = () => playVideo(v.embed, v.title);
+                    div.innerHTML = `
+                        <img src="${v.default_thumb.src}" loading="lazy">
+                        <div class="video-title">${v.title}</div>
+                    `;
+                    document.getElementById("shakesGrid").appendChild(div);
+                }
+            });
+        } catch (e) { console.error(e); }
+        finally { loading = false; document.getElementById("networkLoader").style.display = "none"; }
     }
+
+    function playVideo(url, title) {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        document.getElementById("theaterBox").style.display = "block";
+        document.getElementById("videoIframe").src = url;
+        document.getElementById("videoTitle").innerText = title;
+    }
+
+    function triggerSearch() {
+        const query = document.getElementById("userSearchInput").value;
+        if (!query) return;
+        currentKeyword = query;
+        currentPage = 1;
+        loadedVideoIds.clear();
+        loadContentFeed(currentKeyword, currentPage);
+    }
+
+    function fetchNewCategory(cat) {
+        currentKeyword = cat;
+        currentPage = 1;
+        loadedVideoIds.clear();
+        document.getElementById("theaterBox").style.display = "none";
+        loadContentFeed(currentKeyword, currentPage);
+    }
+
+    window.onscroll = () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+            if (!loading) { currentPage++; loadContentFeed(currentKeyword, currentPage, true); }
+        }
+    };
+
+    // Initial Load
+    loadContentFeed(currentKeyword, currentPage);
 </script>
+
 </body>
 </html>
