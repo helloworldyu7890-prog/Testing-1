@@ -1,127 +1,720 @@
 <!DOCTYPE html>
-<html lang="my">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phaung Dain MM - Auto Video Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BurmaYoYar-HD - Premium Mobile</title>
+    
+    <script src="https://pl30149725.effectivecpmnetwork.com/72/36/71/723671d6fb365692e8aae17ed2085563.js"></script>
+    <script src="https://pl30149726.effectivecpmnetwork.com/22/3d/45/223d45507315c360b0744fa53a9dbbfc.js"></script>
+
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0b0f19; color: #ffffff; font-family: 'Segoe UI', sans-serif; padding-bottom: 50px; }
-        header { background: #111827; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .logo { color: #ef4444; font-size: 24px; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        :root {
+            --app-bg: #08090d;          /* ပိုမိုနက်မှောင်သော Cyber Dark */
+            --card-bg: #12141c;         /* Card များအတွက် ပြာလွင်သော အမှောင်ရောင် */
+            --neon-crimson: #ff2a54;    /* ပိုလန်းသော နီရဲရဲ ကာလာ */
+            --neon-glow: rgba(255, 42, 84, 0.4);
+            --text-main: #f1f3f9;
+            --text-muted: #64748b;
+            --text-glass: rgba(255, 255, 255, 0.7);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+        }
         
-        /* Main Player Section */
-        .player-section { display: none; margin-bottom: 40px; background-color: #1f2937; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .player-info { padding: 20px; }
-        .player-title { font-size: 20px; font-weight: 600; color: #f3f4f6; }
+        body { 
+            background-color: #030406;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px; 
+            background-color: var(--app-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+            border-left: 1px solid rgba(255,255,255,0.03);
+            border-right: 1px solid rgba(255,255,255,0.03);
+        }
+
+        /* Modern Glass Header */
+        header {
+            background-color: rgba(18, 20, 28, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
         
-        /* Grid Section */
-        .section-title { font-size: 22px; margin-bottom: 20px; border-left: 4px solid #ef4444; padding-left: 10px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .video-card { background-color: #111827; border-radius: 8px; overflow: hidden; transition: transform 0.2s; cursor: pointer; text-decoration: none; display: block; }
-        .video-card:hover { transform: translateY(-5px); }
-        .thumbnail-box { position: relative; width: 100%; height: 160px; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-        .play-icon { font-size: 45px; color: rgba(255,255,255,0.8); background: rgba(0,0,0,0.5); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-        .card-info { padding: 12px; color: #d1d5db; font-size: 14px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .header-brand h2 {
+            font-size: 19px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .header-brand h2 .part-burma { color: #ffffff; font-weight: 800; }
+        .header-brand h2 .part-yoyar { color: var(--neon-crimson); font-weight: 900; text-shadow: 0 0 10px var(--neon-glow); }
+        .header-brand h2 .part-hd { color: #ffffff; font-weight: 400; opacity: 0.8; }
+        .header-menu-icon { color: var(--text-main); font-size: 20px; cursor: pointer; }
+
+        /* Sleek Search Interface */
+        .search-container {
+            padding: 14px 16px 6px 16px;
+        }
+        .search-box {
+            display: flex;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 25px; /* ခပ်ဝိုင်းဝိုင်း ပုံစံဆန်း */
+            overflow: hidden;
+            padding: 2px 6px 2px 14px;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus-within {
+            border-color: var(--neon-crimson);
+        }
+        .search-box input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 0;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-btn {
+            background-color: var(--neon-crimson);
+            border: none;
+            color: #fff;
+            padding: 0 18px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin: 4px 0;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 42, 84, 0.3);
+        }
+
+        /* Minimalist Hero Layout */
+        .hero-banner-section {
+            background: linear-gradient(180deg, rgba(8, 9, 13, 0.4) 0%, var(--app-bg) 100%), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400');
+            background-size: cover;
+            background-position: center;
+            padding: 24px 16px;
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
         
-        /* Loading Status */
-        .loading { text-align: center; padding: 50px; font-size: 18px; color: #9ca3af; }
+        .hero-sub {
+            font-size: 11px;
+            color: var(--neon-crimson);
+            margin-bottom: 6px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .hero-main-title { font-size: 12px; font-weight: 400; line-height: 1.5; color: var(--text-glass); }
+
+        .main-body-content { padding: 10px 16px 30px 16px; }
+
+        .content-slide { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease; }
+        .slide-out { opacity: 0; transform: translateY(15px); }
+        .slide-in { opacity: 1; transform: translateY(0); }
+
+        /* Modern Borderless Section Titles */
+        .section-left-title {
+            margin: 20px 0 14px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .section-left-title h3 {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 0.8px;
+        }
+        .section-left-title p {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Flat Pill Pill-style Categories */
+        .top-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .circle-category-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .circle-category-card:active { transform: scale(0.95); background-color: rgba(255, 42, 84, 0.1); border-color: var(--neon-crimson); }
+        .circle-category-card img { display: none; } /* ဖယ်ထုတ်ပြီး Flat Clean UI လုပ်ထားသည် */
+        .circle-category-card span {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Premium Borderless Cards (TikTok Grid Style) */
+        .shakes-style-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        .shake-premium-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+        }
+        .shake-premium-card:active { transform: scale(0.98); }
+        
+        .shake-thumb-placeholder {
+            width: 100%;
+            aspect-ratio: 16/10; 
+            background-color: #090a0f;
+            overflow: hidden;
+            position: relative;
+        }
+        .shake-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .adult-badge {
+            position: absolute;
+            top: 6px; left: 6px;
+            background: var(--neon-crimson);
+            color: #fff;
+            font-size: 8px;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 4px;
+            z-index: 5;
+            letter-spacing: 0.5px;
+        }
+        .shake-card-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .shake-premium-card h4 {
+            font-size: 11px;
+            font-weight: 500;
+            color: #e2e8f0;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .shake-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .shake-price { font-size: 9px; color: var(--text-muted); font-weight: 500; }
+        .shake-watch-btn {
+            color: var(--neon-crimson);
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modern List Layout */
+        .latest-blogs-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .blog-style-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            cursor: pointer;
+        }
+        .blog-media-left {
+            width: 80px;
+            height: 55px; /* List Thumbnail ကို အချိုးကျ ပြင်ဆင်ထားသည် */
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background-color: #000;
+        }
+        .blog-media-left img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-info-right { flex-grow: 1; overflow: hidden; }
+        .blog-info-right h4 {
+            font-size: 12px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .blog-info-right p {
+            font-size: 10px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Cinematic Theater Box Style */
+        .cinema-theater-panel {
+            display: none;
+            background-color: #000;
+            padding: 0;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 42, 84, 0.2);
+            box-shadow: 0 0 25px var(--neon-glow);
+        }
+        .video-player-outer-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
+        .cinema-title-heading { font-size: 12px; font-weight: 600; color: #fff; padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); }
+
+        /* Premium Minimalist Notice Dialog */
+        .notice-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(4, 5, 7, 0.9); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .notice-overlay.show { opacity: 1; visibility: visible; }
+        .notice-box {
+            width: 86%; max-width: 340px; background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px;
+            padding: 24px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            transform: scale(0.9); transition: transform 0.3s ease;
+        }
+        .notice-overlay.show .notice-box { transform: scale(1); }
+        .notice-title { font-size: 15px; color: #fff; font-weight: 800; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .notice-text { font-size: 12px; color: var(--text-glass); line-height: 1.6; margin-bottom: 22px; }
+        
+        .notice-btn {
+            width: 100%; background: var(--neon-crimson); color: #fff;
+            border: none; padding: 12px; border-radius: 25px; font-size: 12px; font-weight: bold;
+            text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 12px var(--neon-glow);
+        }
+
+        /* Clean Footer dark interface */
+        footer {
+            background-color: #050608;
+            color: var(--text-muted);
+            padding: 30px 20px;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .footer-grid-4col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .footer-block h5 {
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-block ul { list-style: none; }
+        .footer-block ul li { margin-bottom: 6px; }
+        .footer-block ul li a {
+            color: var(--text-muted);
+            font-size: 10px;
+            text-decoration: none;
+        }
+        .footer-block ul li a:hover { color: #fff; }
+        .footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            padding-top: 15px;
+            text-align: center;
+            font-size: 10px;
+            color: #475569;
+        }
+
+        .loader { display: block; margin: 20px auto; border: 2px solid rgba(255,255,255,0.03); border-top: 2px solid var(--neon-crimson); border-radius: 50%; width: 24px; height: 24px; animation: spin 0.8s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
-
-    <!-- ⚠️ ADSTERRA POPUNDER CODE ကို အောက်ကနေရာမှာ အစားထိုးထည့်ပါ -->
-    <!-- <script type='text/javascript' src='//plxxxxxxx.com/.../invoke.js'></script> -->
-
 </head>
 <body>
 
+<div class="notice-overlay" id="noticePopup">
+    <div class="notice-box">
+        <div class="notice-title">📢 သတိပေးချက်နှင့် နှုတ်ခွန်းဆက်လွှာ</div>
+        <div class="notice-text">
+            BurmaYoYar-HD မှ ကြိုဆိုပါတယ်ဗျာ။ ကျွန်ုပ်တို့ဆိုက်သည် နေ့စဉ် အကောင်းဆုံး ပရီမီယမ် ဇာတ်ကားများကို အရည်အသွေးမြင့်မားစွာဖြင့် အခမဲ့ တင်ဆက်ပေးနေပါသည်။<br><br>
+            ဆိုက်အတွင်း အဆင်မပြေမှုတစ်စုံတစ်ရာရှိပါက ခေတ္တစောင့်ဆိုင်း၍ ပြန်လည်ကြည့်ရှုပေးပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။
+        </div>
+        <button class="notice-btn" onclick="closeNotice()">👌 ဖတ်ပြီးပါပြီ</button>
+    </div>
+</div>
+
+<div class="app-container">
+
     <header>
-        <a href="#" class="logo" onclick="window.location.reload();">PHAUNG DAIN <span style="color:#fff;">MM</span></a>
+        <div class="header-brand" onclick="backToHome()">
+            <h2>
+                <span class="part-burma">Burma</span><span class="part-yoyar">YoYar</span><span class="part-hd">-HD</span>
+            </h2>
+        </div>
+        <div class="header-menu-icon" onclick="backToHome()">☰</div>
     </header>
 
-    <div class="container">
-        
-        <!-- Video Player (ဗီဒီယိုနှိပ်လိုက်မှ ပေါ်လာမည့်နေရာ) -->
-        <div class="player-section" id="playerSection">
-            <div class="video-wrapper">
-                <iframe id="videoPlayer" src="" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="userSearchInput" placeholder="ဇာတ်ကားအမည်ဖြင့် ရှာဖွေပါ..." onkeypress="handleSearchKeyPress(event)">
+            <button class="search-btn" onclick="triggerSearch()">ရှာပါ</button>
+        </div>
+    </div>
+
+    <div class="hero-banner-section">
+        <div class="hero-sub" id="animatedTitle"></div>
+        <div class="hero-main-title" id="animatedBody"></div>
+    </div>
+
+    <div class="main-body-content">
+
+        <div class="cinema-theater-panel" id="theaterBox">
+            <div class="video-player-outer-box">
+                <iframe id="videoIframe" src="" allowfullscreen></iframe>
             </div>
-            <div class="player-info">
-                <h1 class="player-title" id="playerTitle">ဗီဒီယိုခေါင်းစဉ်</h1>
+            <h3 class="cinema-title-heading" id="videoTitle">Streaming Player Title...</h3>
+        </div>
+
+        <div class="section-left-title">
+            <h3>TOP CATEGORIES</h3>
+            <p>Explore The Recent Most Watched Genres This Week</p>
+        </div>
+        
+        <div class="top-categories-grid">
+            <div class="circle-category-card" onclick="fetchNewCategory('myanmar')">
+                <span>Myanmar</span>
+            </div>
+            <div class="circle-category-card" onclick="fetchNewCategory('japan')">
+                <span>Japan AV</span>
+            </div>
+            <div class="circle-category-card" onclick="fetchNewCategory('asian')">
+                <span>Asian</span>
             </div>
         </div>
 
-        <!-- Video List Grid -->
-        <h2 class="section-title" id="gridTitle">အကြံပြုထားသော ဗီဒီယိုများ</h2>
-        <div id="loadingStatus" class="loading">ဗီဒီယိုများ ရယူနေသည်... ခေတ္တစောင့်ဆိုင်းပါ...</div>
-        <div class="video-grid" id="videoGrid"></div>
-        
+        <div id="contentWrapper" class="content-slide">
+            
+            <div class="section-left-title">
+                <h3>PLATINUM DISCOVERIES</h3>
+                <p>Explore The Recent Premium Exclusives This Week</p>
+            </div>
+            <div class="shakes-style-grid" id="shakesGrid"></div>
+
+            <div class="section-left-title">
+                <h3>LATEST RELEASES</h3>
+                <p>Explore The Recent Most Uploaded Updates This Week</p>
+            </div>
+            <div class="latest-blogs-column" id="blogsColumn"></div>
+
+        </div>
+
+        <div class="loader" id="networkLoader" style="display:none;"></div>
+
     </div>
 
-    <script>
-        // EPORNER API မှာ ရှာချင်တဲ့ Keyword ကို ဒီမှာ ပြောင်းလို့ရပါတယ် (ဥပမာ- asian, amateur, korean)
-        const SEARCH_KEYWORD = 'asian'; 
-        const API_URL = `https://www.eporner.com/api/v2/video/search/?query=${SEARCH_KEYWORD}&per_page=20&thumbsize=big&format=json`;
+    <footer>
+        <div class="footer-grid-4col">
+            <div class="footer-block">
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="#">Premium VIP</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Category</h5>
+                <ul>
+                    <li><a href="#" onclick="fetchNewCategory('myanmar')">Myanmar Leak</a></li>
+                    <li><a href="#" onclick="fetchNewCategory('japan')">JAV Censored</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Company Info</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Follow Us</h5>
+                <ul>
+                    <li><a href="#">Telegram Channel</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            &copy; 2026 BurmaYoYar-HD. All Rights Reserved.
+        </div>
+    </footer>
 
-        // API ကနေ ဒေတာဆွဲယူတဲ့ Function
-        async function fetchVideos() {
-            try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                
-                const videoGrid = document.getElementById('videoGrid');
-                const loadingStatus = document.getElementById('loadingStatus');
-                
-                // Loading စာသားကို ဖျောက်လိုက်မယ်
-                loadingStatus.style.display = 'none';
+</div>
 
-                if(data.videos && data.videos.length > 0) {
-                    data.videos.forEach(video => {
-                        // ဗီဒီယိုကတ်တစ်ခုချင်းစီ ဆောက်မယ်
-                        const card = document.createElement('div');
-                        card.className = 'video-card';
-                        
-                        // အသုံးပြုသူ ကတ်ကို နှိပ်လိုက်ရင် Video Player ထဲ Embed Link ထည့်ပြီး Play မယ်
-                        card.onclick = () => {
-                            playVideo(video.embed, video.title);
-                        };
+<script>
+    const API_URL = 'https://www.eporner.com/api/v2/video/search/';
+    let currentKeyword = 'myanmar';
+    let currentPage = 1;
+    let loading = false;
+    let appendMode = false;
+    
+    let loadedVideoIds = new Set(); 
 
-                        card.innerHTML = `
-                            <div class="thumbnail-box" style="background-image: url('${video.default_thumb.src}')">
-                                <div class="play-icon">▶</div>
-                            </div>
-                            <div class="card-info">${video.title}</div>
-                        `;
-                        videoGrid.appendChild(card);
-                    });
-                } else {
-                    loadingStatus.innerText = 'ဗီဒီယိုများ ရှာမတွေ့ပါ။';
-                    loadingStatus.style.display = 'block';
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                document.getElementById('loadingStatus').innerText = 'Error: ဗီဒီယိုများ ဆွဲယူ၍ မရနိုင်ပါ။';
+    const titleText = "ပရီမီယမ် ရသခံစားမှု့";
+    const bodyText = "မြန်မာကားများတင်သာမက VIP , LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ အဆင့်မြင့်မြင့် ကြည့်ရှုနိူင်ပြီ!";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        startEngine();
+        startTextAnimations();
+        checkAndShowNotice();
+    });
+
+    function checkAndShowNotice() {
+        const hasSeenNotice = localStorage.getItem("hasSeenBurmaYoYarNoticeFinal");
+        if (!hasSeenNotice) {
+            document.getElementById("noticePopup").classList.add("show");
+        }
+    }
+
+    function closeNotice() {
+        document.getElementById("noticePopup").classList.remove("show");
+        localStorage.setItem("hasSeenBurmaYoYarNoticeFinal", "true");
+    }
+
+    function startTextAnimations() {
+        let titleIdx = 0;
+        let bodyIdx = 0;
+        const titleContainer = document.getElementById("animatedTitle");
+        const bodyContainer = document.getElementById("animatedBody");
+
+        function typeTitle() {
+            if (titleIdx < titleText.length) {
+                titleContainer.innerHTML += titleText.charAt(titleIdx);
+                titleIdx++;
+                setTimeout(typeTitle, 90);
+            } else {
+                setTimeout(typeBody, 400);
             }
         }
 
-        // ဗီဒီယိုဖွင့်ပေးမည့် Function
-        function playVideo(embedUrl, title) {
-            const playerSection = document.getElementById('playerSection');
-            const videoPlayer = document.getElementById('videoPlayer');
-            const playerTitle = document.getElementById('playerTitle');
-            
-            videoPlayer.src = embedUrl;
-            playerTitle.innerText = title;
-            playerSection.style.display = 'block';
-            
-            // ဗီဒီယိုဖွင့်လိုက်တာနဲ့ Screen အပေါ်ဆုံးကို Auto တက်သွားအောင်
-            window.scrollTo({top: 0, behavior: 'smooth'});
+        function typeBody() {
+            if (bodyIdx < bodyText.length) {
+                bodyContainer.innerHTML += bodyText.charAt(bodyIdx);
+                bodyIdx++;
+                setTimeout(typeBody, 40);
+            }
         }
+        typeTitle();
+    }
 
-        // စာမျက်နှာပွင့်တာနဲ့ API ကစခေါ်မယ်
-        window.onload = fetchVideos;
-    </script>
+    function startEngine() {
+        appendMode = false;
+        loadedVideoIds.clear(); 
+        currentPage = Math.floor(Math.random() * 8) + 1;
+        loadContentFeed(currentKeyword, currentPage);
+    }
+
+    async function loadContentFeed(keyword, page) {
+        if (loading) return;
+        loading = true;
+        document.getElementById("networkLoader").style.display = "block";
+
+        try {
+            const res = await fetch(`${API_URL}?query=${encodeURIComponent(keyword)}&per_page=20&page=${page}&thumbsize=big`);
+            const data = await res.json();
+
+            if (data && data.videos && data.videos.length > 0) {
+                if (!appendMode) {
+                    document.getElementById("shakesGrid").innerHTML = "";
+                    document.getElementById("blogsColumn").innerHTML = "";
+                }
+                
+                const uniqueVideos = data.videos.filter(video => {
+                    if (loadedVideoIds.has(video.id)) {
+                        return false; 
+                    } else {
+                        loadedVideoIds.add(video.id); 
+                        return true;
+                    }
+                });
+
+                if (uniqueVideos.length > 0) {
+                    renderGridAndColumn(uniqueVideos);
+                } else {
+                    loading = false;
+                    currentPage++;
+                    loadContentFeed(keyword, currentPage);
+                    return;
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        } finally {
+            document.getElementById("networkLoader").style.display = "none";
+            loading = false;
+        }
+    }
+
+    function renderGridAndColumn(videos) {
+        const shakesGrid = document.getElementById("shakesGrid");
+        const blogsColumn = document.getElementById("blogsColumn");
+
+        const firstFour = videos.slice(0, 4);
+        firstFour.forEach(v => {
+            const card = document.createElement("div");
+            card.className = "shake-premium-card";
+            card.onclick = () => playVideo(v.embed, v.title);
+            card.innerHTML = `
+                <div class="shake-thumb-placeholder">
+                    <div class="adult-badge">18+</div>
+                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
+                </div>
+                <div class="shake-card-info">
+                    <h4>${v.title}</h4>
+                    <div class="shake-meta-row">
+                        <span class="shake-price">👁️ ${parseInt(v.views).toLocaleString()}</span>
+                        <span class="shake-watch-btn">Watch</span>
+                    </div>
+                </div>
+            `;
+            shakesGrid.appendChild(card);
+        });
+
+        const remaining = videos.slice(4);
+        remaining.forEach(v => {
+            const item = document.createElement("div");
+            item.className = "blog-style-card";
+            item.onclick = () => playVideo(v.embed, v.title);
+            item.innerHTML = `
+                <div class="blog-media-left">
+                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
+                </div>
+                <div class="blog-info-right">
+                    <h4>${v.title}</h4>
+                    <p>Views: ${parseInt(v.views).toLocaleString()} hits.</p>
+                </div>
+            `;
+            blogsColumn.appendChild(item);
+        });
+    }
+
+    function triggerSearch() {
+        const queryInput = document.getElementById("userSearchInput").value.trim();
+        if (queryInput === "") return;
+
+        document.getElementById("theaterBox").style.display = "none";
+        document.getElementById("videoIframe").src = "";
+        
+        loadedVideoIds.clear(); 
+        currentKeyword = queryInput;
+        currentPage = 1;
+        appendMode = false;
+        loadContentFeed(currentKeyword, currentPage);
+    }
+
+    function handleSearchKeyPress(event) {
+        if (event.key === "Enter") { triggerSearch(); }
+    }
+
+    function playVideo(url, title) {
+        window.scrollTo({top: 150, behavior: 'smooth'});
+        document.getElementById("theaterBox").style.display = "block";
+        document.getElementById("videoIframe").src = url;
+        document.getElementById("videoTitle").innerText = title;
+    }
+
+    function fetchNewCategory(cat) {
+        const wrapper = document.getElementById("contentWrapper");
+        
+        wrapper.classList.remove("slide-in");
+        wrapper.classList.add("slide-out");
+        
+        setTimeout(async () => {
+            document.getElementById("theaterBox").style.display = "none";
+            document.getElementById("videoIframe").src = "";
+            document.getElementById("userSearchInput").value = ""; 
+            
+            loadedVideoIds.clear(); 
+            currentKeyword = cat;
+            appendMode = false; 
+            
+            currentPage = Math.floor(Math.random() * 8) + 1;
+            await loadContentFeed(currentKeyword, currentPage);
+            
+            wrapper.classList.remove("slide-out");
+            wrapper.classList.add("slide-in");
+        }, 350);
+    }
+
+    function backToHome() {
+        fetchNewCategory('myanmar');
+    }
+
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 600) {
+            if(!loading) {
+                appendMode = true; 
+                currentPage++; 
+                loadContentFeed(currentKeyword, currentPage);
+            }
+        }
+    };
+</script>
+
 </body>
 </html>
