@@ -3,154 +3,734 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BurmaYoYar-HD - Premium Bold Edition</title>
+    <title>BurmaYoYar-HD - Premium Cream Bold Frame</title>
     
+    <!-- ⚠️ ADSTERRA POPUNDER SCRIPTS (DO NOT REMOVE) -->
     <script src="https://pl30149725.effectivecpmnetwork.com/72/36/71/723671d6fb365692e8aae17ed2085563.js"></script>
     <script src="https://pl30149726.effectivecpmnetwork.com/22/3d/45/223d45507315c360b0744fa53a9dbbfc.js"></script>
 
     <style>
         :root {
-            --bg-color: #f4eae1;
-            --main-text: #2a221f;
-            --accent-color: #8c7b75;
-            --border-color: #5c4e48; /* Frame အတွက် အရောင် *
+            --app-bg: #f4eae1;          /* နို့နှစ်ရောင် (Warm Cream) Main Background */
+            --card-bg: #eaddd3;         /* နို့နှစ်ရောင်ရင့် Content Card */
+            --accent-cream: #1a1615;    /* ပိုမိုထင်ရှားသော စာသားအမဲရောင် */
+            --text-main: #1a1615;       /* စာသားအားလုံး လုံးဝမမှိန်စေရန် အမဲရောင်အပိုင်သုံးသည် */
+            --text-muted: #5c4e48;      
+            --border-frame: #3a312e;    /* Run Colour Frame အတွက် ထင်ရှားသော Frame ရောင် */
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; font-weight: 600; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            font-weight: 800 !important; /* စာသားအားလုံးကို လုံးဝထင်ရှားပြတ်သားသော Bold စတိုင်ပြောင်းလဲခြင်း */
+        }
         
-        body { background-color: var(--bg-color); color: var(--main-text); }
-        .app-container { max-width: 480px; margin: auto; min-height: 100vh; padding-bottom: 20px; }
-
-        /* Header */
-        header { padding: 20px; text-align: center; border-bottom: 2px solid var(--border-color); }
-        .header-brand h2 { font-size: 24px; text-transform: uppercase; }
-
-        /* Hero Banner with Frame */
-        .hero-banner-section {
-            margin: 15px;
-            padding: 25px;
-            border: 3px solid var(--border-color);
-            background-color: #eaddd3;
-            border-radius: 12px;
+        body { 
+            background-color: #e6dad0;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         }
-        .hero-sub { font-size: 14px; color: var(--border-color); margin-bottom: 10px; }
-        .hero-main-title { font-size: 16px; line-height: 1.5; color: var(--main-text); }
 
-        /* Category Grid with Frame */
-        .top-categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px 15px; }
-        .circle-category-card {
-            border: 2px solid var(--border-color);
-            padding: 10px;
-            text-align: center;
-            border-radius: 8px;
+        .app-container {
+            width: 100%;
+            max-width: 480px; 
+            background-color: var(--app-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            box-shadow: 0 0 30px rgba(0,0,0,0.15);
+            border-left: 3px solid var(--border-frame);
+            border-right: 3px solid var(--border-frame);
+        }
+
+        /* Modern Glass Header */
+        header {
+            background-color: rgba(244, 234, 225, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 18px 20px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            border-bottom: 3px solid var(--border-frame);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-brand h2 {
+            font-size: 22px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
             cursor: pointer;
-            background: #eaddd3;
         }
+        .header-brand h2 .part-burma { color: #1a1615; }
+        .header-brand h2 .part-yoyar { color: #8c7b75; }
+        .header-brand h2 .part-hd { color: #5c4e48; }
 
-        /* Video Grid with Frame */
-        .shakes-style-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
-        .shake-premium-card {
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+        /* Sleek Search Interface */
+        .search-container {
+            padding: 14px 16px 6px 16px;
+        }
+        .search-box {
+            display: flex;
+            background-color: var(--card-bg);
+            border: 3px solid var(--border-frame); /* Search Frame Border */
+            border-radius: 12px;
             overflow: hidden;
-            background: #eaddd3;
+            padding: 2px 6px 2px 14px;
         }
-        .shake-thumb-placeholder { width: 100%; aspect-ratio: 16/10; background: #ccc; }
-        .shake-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .shake-card-info { padding: 8px; }
-        .shake-card-info h4 { font-size: 12px; height: 3em; overflow: hidden; }
+        .search-box input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 0;
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+        }
+        .search-box input::placeholder { color: var(--text-muted); }
+        .search-btn {
+            background-color: var(--border-frame);
+            border: none;
+            color: #f4eae1;
+            padding: 0 18px;
+            font-size: 13px;
+            border-radius: 8px;
+            margin: 4px 0;
+            cursor: pointer;
+        }
 
-        /* General Styles */
-        .section-left-title { padding: 0 15px; margin-top: 20px; }
-        .section-left-title h3 { font-size: 16px; border-left: 4px solid var(--border-color); padding-left: 10px; }
+        /* Hero Banner with Run Colour Frame Border */
+        .hero-banner-section {
+            background-color: var(--card-bg);
+            position: relative;
+            padding: 30px 24px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            margin: 12px 16px;
+            border: 4px solid var(--border-frame); /* Hero Banner Run Colour Frame */
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .hero-banner-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 65% 60%, 35% 85%, 0 70%);
+            z-index: 1;
+        }
         
-        .search-container { padding: 15px; }
-        .search-box { border: 2px solid var(--border-color); border-radius: 8px; display: flex; overflow: hidden; }
-        .search-box input { flex: 1; border: none; padding: 10px; outline: none; background: #eaddd3; }
-        .search-btn { border: none; background: var(--border-color); color: #fff; padding: 0 15px; }
+        .hero-text-wrapper {
+            position: relative;
+            z-index: 2; 
+            max-width: 95%;
+        }
+
+        .hero-sub {
+            font-size: 15px;
+            color: #5c4e48;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .hero-main-title { 
+            font-size: 13px; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+        }
+
+        .main-body-content { padding: 10px 16px 30px 16px; }
+
+        .content-slide { transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease; }
+        .slide-out { opacity: 0; transform: translateY(15px); }
+        .slide-in { opacity: 1; transform: translateY(0); }
+
+        .section-left-title {
+            margin: 25px 0 14px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .section-left-title h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            letter-spacing: 1px;
+            border-left: 4px solid var(--border-frame);
+            padding-left: 8px;
+        }
+        .section-left-title p {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Category Grid with Run Colour Frame Border */
+        .top-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .circle-category-card {
+            background-color: var(--card-bg);
+            border: 3px solid var(--border-frame); /* Category Run Colour Frame */
+            border-radius: 10px;
+            height: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .circle-category-card:active { transform: scale(0.95); background-color: rgba(0, 0, 0, 0.08); }
+        .circle-category-card span {
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        /* Video Grid with Run Colour Frame Border */
+        .shakes-style-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 15px;
+        }
+        .shake-premium-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+            border: 3px solid var(--border-frame); /* Video Grid Card Run Colour Frame */
+        }
+        .shake-premium-card:active { transform: scale(0.98); }
+        
+        .shake-thumb-placeholder {
+            width: 100%;
+            aspect-ratio: 16/10; 
+            background-color: #dfd3c8;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 2px solid var(--border-frame);
+        }
+        .shake-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .adult-badge {
+            position: absolute;
+            top: 6px; left: 6px;
+            background: var(--border-frame);
+            color: #f4eae1;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            z-index: 5;
+        }
+        .shake-card-info {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .shake-premium-card h4 {
+            font-size: 12px;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .shake-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .shake-price { font-size: 10px; color: var(--text-muted); }
+        .shake-watch-btn {
+            color: #5c4e48;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Modern List Layout */
+        .latest-blogs-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .blog-style-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 8px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            cursor: pointer;
+            border: 3px solid var(--border-frame); /* List Items Frame */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+        .blog-media-left {
+            width: 85px;
+            height: 58px;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background-color: #dfd3c8;
+            border: 1px solid var(--border-frame);
+        }
+        .blog-media-left img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-info-right { flex-grow: 1; overflow: hidden; }
+        .blog-info-right h4 {
+            font-size: 13px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .blog-info-right p {
+            font-size: 11px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Cinematic Theater Box Style */
+        .cinema-theater-panel {
+            display: none;
+            background-color: #000;
+            padding: 0;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 4px solid var(--border-frame);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .video-player-outer-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
+        .cinema-title-heading { font-size: 13px; color: var(--text-main); padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); border-top: 2px solid var(--border-frame); }
+
+        /* Premium Notice Dialog */
+        .notice-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(234, 221, 211, 0.95); z-index: 9999;
+            display: flex; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .notice-overlay.show { opacity: 1; visibility: visible; }
+        .notice-box {
+            width: 86%; max-width: 340px; background-color: var(--app-bg);
+            border: 4px solid var(--border-frame); border-radius: 16px;
+            padding: 24px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: scale(0.9); transition: transform 0.3s ease;
+        }
+        .notice-overlay.show .notice-box { transform: scale(1); }
+        .notice-title { font-size: 16px; color: var(--text-main); margin-bottom: 12px; }
+        .notice-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px; }
+        
+        .notice-btn {
+            width: 100%; background: var(--border-frame); color: #f4eae1;
+            border: none; padding: 12px; border-radius: 25px; font-size: 13px;
+            text-transform: uppercase; cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #eddcd0;
+            color: var(--text-muted);
+            padding: 30px 20px;
+            margin-top: auto;
+            border-top: 3px solid var(--border-frame);
+        }
+        .footer-grid-4col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .footer-block h5 {
+            color: var(--text-main);
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .footer-block ul { list-style: none; }
+        .footer-block ul li { margin-bottom: 6px; }
+        .footer-block ul li a {
+            color: var(--text-muted);
+            font-size: 11px;
+            text-decoration: none;
+        }
+        .footer-block ul li a:hover { color: var(--text-main); }
+        .footer-bottom-bar {
+            border-top: 2px solid rgba(0, 0, 0, 0.05);
+            padding-top: 15px;
+            text-align: center;
+            font-size: 11px;
+            color: #8c7b75;
+        }
+
+        .loader { display: block; margin: 20px auto; border: 3px solid rgba(0,0,0,0.03); border-top: 3px solid var(--border-frame); border-radius: 50%; width: 26px; height: 26px; animation: spin 0.8s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
+<div class="notice-overlay" id="noticePopup">
+    <div class="notice-box">
+        <div class="notice-title">📢 သတိပေးချက်နှင့် နှုတ်ခွန်းဆက်လွှာ</div>
+        <div class="notice-text">
+            BurmaYoYar-HD မှ ကြိုဆိုပါတယ်ဗျာ။ ကျွန်ုပ်တို့ဆိုက်သည် နေ့စဉ် အကောင်းဆုံး ပရီမီယမ် ဇာတ်ကားများကို အရည်အသွေးမြင့်မားစွာဖြင့် အခမဲ့ တင်ဆက်ပေးနေပါသည်။<br><br>
+            ဆိုက်အတွင်း အဆင်မပြေမှုတစ်စုံတစ်ရာရှိပါက ခေတ္တစောင့်ဆိုင်း၍ ပြန်လည်ကြည့်ရှုပေးပါရန် မေတ္တာရပ်ခံအပ်ပါသည်။
+        </div>
+        <button class="notice-btn" onclick="closeNotice()">👌 ဖတ်ပြီးပါပြီ</button>
+    </div>
+</div>
+
 <div class="app-container">
+
     <header>
-        <div class="header-brand"><h2>BURMA <span style="color:var(--accent-color)">YOYAR</span>-HD</h2></div>
+        <div class="header-brand" onclick="backToHome()">
+            <h2>
+                <span class="part-burma">Burma</span><span class="part-yoyar">YoYar</span><span class="part-hd">-HD</span>
+            </h2>
+        </div>
     </header>
 
     <div class="search-container">
         <div class="search-box">
-            <input type="text" id="userSearchInput" placeholder="ရှာဖွေရန်...">
+            <input type="text" id="userSearchInput" placeholder="ဇာတ်ကားအမည်ဖြင့် ရှာဖွေပါ..." onkeypress="handleSearchKeyPress(event)">
             <button class="search-btn" onclick="triggerSearch()">ရှာပါ</button>
         </div>
     </div>
 
-    <!-- Hero Banner with Frame -->
+    <!-- 1000017011.jpg Wave Style Hero Section with Frame Border -->
     <div class="hero-banner-section">
-        <div class="hero-sub" id="animatedTitle"></div>
-        <div class="hero-main-title" id="animatedBody"></div>
+        <div class="hero-text-wrapper">
+            <div class="hero-sub" id="animatedTitle"></div>
+            <div class="hero-main-title" id="animatedBody"></div>
+        </div>
     </div>
 
-    <div class="top-categories-grid">
-        <div class="circle-category-card" onclick="fetchNewCategory('myanmar')">Myanmar</div>
-        <div class="circle-category-card" onclick="fetchNewCategory('japan')">Japan</div>
-        <div class="circle-category-card" onclick="fetchNewCategory('asian')">Asian</div>
+    <div class="main-body-content">
+
+        <div class="cinema-theater-panel" id="theaterBox">
+            <div class="video-player-outer-box">
+                <iframe id="videoIframe" src="" allowfullscreen></iframe>
+            </div>
+            <h3 class="cinema-title-heading" id="videoTitle">Streaming Player Title...</h3>
+        </div>
+
+        <div class="section-left-title">
+            <h3>TOP CATEGORIES</h3>
+            <p>Explore The Recent Most Watched Genres This Week</p>
+        </div>
+        
+        <!-- Category Items with Frame Border -->
+        <div class="top-categories-grid">
+            <div class="circle-category-card" onclick="fetchNewCategory('myanmar')">
+                <span>Myanmar</span>
+            </div>
+            <div class="circle-category-card" onclick="fetchNewCategory('japan')">
+                <span>Japan AV</span>
+            </div>
+            <div class="circle-category-card" onclick="fetchNewCategory('asian')">
+                <span>Asian</span>
+            </div>
+        </div>
+
+        <div id="contentWrapper" class="content-slide">
+            
+            <div class="section-left-title">
+                <h3>PLATINUM DISCOVERIES</h3>
+                <p>Explore The Recent Premium Exclusives This Week</p>
+            </div>
+            <!-- Video Grid Items with Frame Border -->
+            <div class="shakes-style-grid" id="shakesGrid"></div>
+
+            <div class="section-left-title">
+                <h3>LATEST RELEASES</h3>
+                <p>Explore The Recent Most Uploaded Updates This Week</p>
+            </div>
+            <div class="latest-blogs-column" id="blogsColumn"></div>
+
+        </div>
+
+        <div class="loader" id="networkLoader" style="display:none;"></div>
+
     </div>
 
-    <div class="section-left-title"><h3>LATEST RELEASES</h3></div>
-    <div class="shakes-style-grid" id="shakesGrid"></div>
+    <footer>
+        <div class="footer-grid-4col">
+            <div class="footer-block">
+                <h5>Products</h5>
+                <ul>
+                    <li><a href="#">Premium VIP</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Category</h5>
+                <ul>
+                    <li><a href="#" onclick="fetchNewCategory('myanmar')">Myanmar Leak</a></li>
+                    <li><a href="#" onclick="fetchNewCategory('japan')">JAV Censored</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Company Info</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h5>Follow Us</h5>
+                <ul>
+                    <li><a href="#">Telegram Channel</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            &copy; 2026 BurmaYoYar-HD. All Rights Reserved.
+        </div>
+    </footer>
 
 </div>
 
 <script>
-    const titleText = "ပရီမီယမ် ရသခံစားမှု့";
-    const bodyText = "မြန်မာကားများတင်သာမက VIP, LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ ကြည့်ရှုနိူင်ပြီ!";
+    const API_URL = 'https://www.eporner.com/api/v2/video/search/';
+    let currentKeyword = 'myanmar';
+    let currentPage = 1;
+    let loading = false;
+    let appendMode = false;
+    
+    let loadedVideoIds = new Set(); 
 
+    // မူလမြန်မာစာသား Animation
+    const titleText = "ပရီမီယမ် ရသခံစားမှု့";
+    const bodyText = "မြန်မာကားများတင်သာမက VIP , LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ ကြည့်ရှုနိူင်ပြီ!";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        startEngine();
+        startTextAnimations();
+        checkAndShowNotice();
+    });
+
+    function checkAndShowNotice() {
+        const hasSeenNotice = localStorage.getItem("hasSeenBurmaYoYarNoticeFinal");
+        if (!hasSeenNotice) {
+            document.getElementById("noticePopup").classList.add("show");
+        }
+    }
+
+    function closeNotice() {
+        document.getElementById("noticePopup").classList.remove("show");
+        localStorage.setItem("hasSeenBurmaYoYarNoticeFinal", "true");
+    }
+
+    // Typewriter effect logic
     function startTextAnimations() {
-        let titleIdx = 0; let bodyIdx = 0;
+        let titleIdx = 0;
+        let bodyIdx = 0;
         const titleContainer = document.getElementById("animatedTitle");
         const bodyContainer = document.getElementById("animatedBody");
 
         function typeTitle() {
             if (titleIdx < titleText.length) {
                 titleContainer.innerHTML += titleText.charAt(titleIdx);
-                titleIdx++; setTimeout(typeTitle, 50);
-            } else { typeBody(); }
+                titleIdx++;
+                setTimeout(typeTitle, 90);
+            } else {
+                setTimeout(typeBody, 400);
+            }
         }
+
         function typeBody() {
             if (bodyIdx < bodyText.length) {
                 bodyContainer.innerHTML += bodyText.charAt(bodyIdx);
-                bodyIdx++; setTimeout(typeBody, 20);
+                bodyIdx++;
+                setTimeout(typeBody, 40);
             }
         }
         typeTitle();
     }
 
-    async function loadContent(keyword) {
-        const res = await fetch(`https://www.eporner.com/api/v2/video/search/?query=${keyword}&per_page=6`);
-        const data = await res.json();
-        const grid = document.getElementById("shakesGrid");
-        grid.innerHTML = "";
-        data.videos.forEach(v => {
-            grid.innerHTML += `
-                <div class="shake-premium-card">
-                    <div class="shake-thumb-placeholder"><img src="${v.default_thumb.src}"></div>
-                    <div class="shake-card-info"><h4>${v.title}</h4></div>
+    function startEngine() {
+        appendMode = false;
+        loadedVideoIds.clear(); 
+        currentPage = Math.floor(Math.random() * 8) + 1;
+        loadContentFeed(currentKeyword, currentPage);
+    }
+
+    async function loadContentFeed(keyword, page) {
+        if (loading) return;
+        loading = true;
+        document.getElementById("networkLoader").style.display = "block";
+
+        try {
+            const res = await fetch(`${API_URL}?query=${encodeURIComponent(keyword)}&per_page=20&page=${page}&thumbsize=big`);
+            const data = await res.json();
+
+            if (data && data.videos && data.videos.length > 0) {
+                if (!appendMode) {
+                    document.getElementById("shakesGrid").innerHTML = "";
+                    document.getElementById("blogsColumn").innerHTML = "";
+                }
+                
+                const uniqueVideos = data.videos.filter(video => {
+                    if (loadedVideoIds.has(video.id)) {
+                        return false; 
+                    } else {
+                        loadedVideoIds.add(video.id); 
+                        return true;
+                    }
+                });
+
+                if (uniqueVideos.length > 0) {
+                    renderGridAndColumn(uniqueVideos);
+                } else {
+                    loading = false;
+                    currentPage++;
+                    loadContentFeed(keyword, currentPage);
+                    return;
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        } finally {
+            document.getElementById("networkLoader").style.display = "none";
+            loading = false;
+        }
+    }
+
+    function renderGridAndColumn(videos) {
+        const shakesGrid = document.getElementById("shakesGrid");
+        const blogsColumn = document.getElementById("blogsColumn");
+
+        const firstFour = videos.slice(0, 4);
+        firstFour.forEach(v => {
+            const card = document.createElement("div");
+            card.className = "shake-premium-card";
+            card.onclick = () => playVideo(v.embed, v.title);
+            card.innerHTML = `
+                <div class="shake-thumb-placeholder">
+                    <div class="adult-badge">18+</div>
+                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
+                </div>
+                <div class="shake-card-info">
+                    <h4>${v.title}</h4>
+                    <div class="shake-meta-row">
+                        <span class="shake-price">👁️ ${parseInt(v.views).toLocaleString()}</span>
+                        <span class="shake-watch-btn">Watch</span>
+                    </div>
                 </div>
             `;
+            shakesGrid.appendChild(card);
+        });
+
+        const remaining = videos.slice(4);
+        remaining.forEach(v => {
+            const item = document.createElement("div");
+            item.className = "blog-style-card";
+            item.onclick = () => playVideo(v.embed, v.title);
+            item.innerHTML = `
+                <div class="blog-media-left">
+                    <img src="${v.default_thumb.src}" alt="thumb" loading="lazy">
+                </div>
+                <div class="blog-info-right">
+                    <h4>${v.title}</h4>
+                    <p>Views: ${parseInt(v.views).toLocaleString()}</p>
+                </div>
+            `;
+            blogsColumn.appendChild(item);
         });
     }
 
     function triggerSearch() {
-        const q = document.getElementById("userSearchInput").value;
-        loadContent(q);
+        const queryInput = document.getElementById("userSearchInput").value.trim();
+        if (queryInput === "") return;
+
+        document.getElementById("theaterBox").style.display = "none";
+        document.getElementById("videoIframe").src = "";
+        
+        loadedVideoIds.clear(); 
+        currentKeyword = queryInput;
+        currentPage = 1;
+        appendMode = false;
+        loadContentFeed(currentKeyword, currentPage);
     }
 
-    function fetchNewCategory(c) { loadContent(c); }
+    function handleSearchKeyPress(event) {
+        if (event.key === "Enter") { triggerSearch(); }
+    }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        startTextAnimations();
-        loadContent('myanmar');
-    });
+    function playVideo(url, title) {
+        window.scrollTo({top: 150, behavior: 'smooth'});
+        document.getElementById("theaterBox").style.display = "block";
+        document.getElementById("videoIframe").src = url;
+        document.getElementById("videoTitle").innerText = title;
+    }
+
+    function fetchNewCategory(cat) {
+        const wrapper = document.getElementById("contentWrapper");
+        
+        wrapper.classList.remove("slide-in");
+        wrapper.classList.add("slide-out");
+        
+        setTimeout(async () => {
+            document.getElementById("theaterBox").style.display = "none";
+            document.getElementById("videoIframe").src = "";
+            document.getElementById("userSearchInput").value = ""; 
+            
+            loadedVideoIds.clear(); 
+            currentKeyword = cat;
+            appendMode = false; 
+            
+            currentPage = Math.floor(Math.random() * 8) + 1;
+            await loadContentFeed(currentKeyword, currentPage);
+            
+            wrapper.classList.remove("slide-out");
+            wrapper.classList.add("slide-in");
+        }, 350);
+    }
+
+    function backToHome() {
+        fetchNewCategory('myanmar');
+    }
+
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 600) {
+            if(!loading) {
+                appendMode = true; 
+                currentPage++; 
+                loadContentFeed(currentKeyword, currentPage);
+            }
+        }
+    };
 </script>
+
 </body>
 </html>
