@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BurmaYoYar-HD - Cyber Blue Glassmorphism</title>
+    <title>BurmaYoYar-HD - Pure Sexy Blue Edition</title>
     
     <!-- ⚠️ ADSTERRA NEW SCRIPTS -->
     <!-- Adsterra Popunder Code -->
@@ -13,16 +13,14 @@
 
     <style>
         :root {
-            /* 1000017043.jpg "Sexy Blue" Palette Integration */
-            --bg-gradient-start: #004ecc; 
-            --bg-gradient-end: #b0e0e6;
-            --glass-bg: rgba(255, 255, 255, 0.12);
-            --glass-border: rgba(255, 255, 255, 0.25);
-            --glass-card: rgba(15, 32, 67, 0.45);
+            /* 1000017043.jpg Pure Sexy Blue Integration (No Gradients) */
+            --sexy-blue: #007BFF;
+            --body-bg: #0a1424;          /* Deep Blue Slate Background */
+            --app-bg: #101f38;           /* Solid Sexy Blue Theme Container */
+            --card-bg: #182c4d;          /* Card Container Background */
+            --border-color: #244170;     /* UI Borders */
             --text-main: #ffffff;
-            --text-muted: #d0e3ff;
-            --accent-blue: #007BFF;
-            --neon-glow: 0 8px 32px 0 rgba(0, 78, 204, 0.3);
+            --text-muted: #8cb4ff;
         }
 
         * { 
@@ -31,12 +29,11 @@
             padding: 0; 
             font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; 
             -webkit-tap-highlight-color: transparent;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         body { 
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            background-attachment: fixed;
+            background-color: var(--body-bg);
             color: var(--text-main);
             display: flex;
             justify-content: center;
@@ -46,28 +43,24 @@
         .app-container {
             width: 100%;
             max-width: 480px; 
-            background: rgba(10, 25, 50, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background-color: var(--app-bg);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            border-left: 1px solid var(--glass-border);
-            border-right: 1px solid var(--glass-border);
-            box-shadow: var(--neon-glow);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.15);
         }
 
-        /* Premium Glass Header */
+        /* Pure Sexy Blue Header */
         header {
-            background: rgba(10, 25, 50, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background-color: var(--app-bg);
             padding: 16px 20px;
             display: flex;
             justify-content: center; 
             align-items: center;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 2px solid var(--sexy-blue);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -75,28 +68,26 @@
         
         .header-brand h2 {
             font-size: 22px;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             cursor: pointer;
             font-weight: 800;
         }
-        .header-brand h2 .part-burma { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        .header-brand h2 .part-yoyar { color: #b0e0e6; }
-        .header-brand h2 .part-hd { color: var(--accent-blue); }
+        .header-brand h2 .part-burma { color: #ffffff; }
+        .header-brand h2 .part-yoyar { color: var(--text-muted); }
+        .header-brand h2 .part-hd { color: var(--sexy-blue); }
 
-        /* Sleek Search Interface */
+        /* Search Layout */
         .search-container {
             padding: 16px 16px 8px 16px;
         }
         .search-box {
             display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             overflow: hidden;
-            padding: 2px 4px 2px 16px;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            padding: 2px 4px 2px 14px;
         }
         .search-box input {
             flex-grow: 1;
@@ -109,52 +100,49 @@
         }
         .search-box input::placeholder { color: var(--text-muted); }
         .search-btn {
-            background: var(--accent-blue);
+            background-color: var(--sexy-blue);
             border: none;
             color: #ffffff;
-            padding: 0 22px;
+            padding: 0 20px;
             font-size: 13px;
-            border-radius: 25px;
+            border-radius: 8px;
             margin: 4px 0;
             cursor: pointer;
             transition: background 0.2s;
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
         }
-        .search-btn:active { background: #0056b3; }
+        .search-btn:active { background-color: #0056b3; }
 
-        /* Futuristic Hero Banner */
+        /* Sexy Blue Solid Hero Banner */
         .hero-banner-section {
-            background: linear-gradient(135deg, rgba(0, 123, 255, 0.3), rgba(176, 224, 230, 0.1));
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--sexy-blue);
             position: relative;
-            padding: 26px 22px;
-            min-height: 120px;
+            padding: 26px 20px;
+            min-height: 110px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             margin: 12px 16px;
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: inset 0 0 15px rgba(255,255,255,0.1);
+            border-radius: 4px 12px 12px 4px;
         }
-
+        
         .hero-text-wrapper { position: relative; z-index: 2; }
         .hero-sub {
             font-size: 16px;
-            color: #b0e0e6;
+            color: var(--sexy-blue);
             margin-bottom: 6px;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-weight: 800;
         }
         .hero-main-title { 
             font-size: 13px; 
             line-height: 1.6; 
-            color: var(--text-muted); 
+            color: #ffffff; 
         }
 
         .main-body-content { padding: 10px 16px 30px 16px; }
-        .content-slide { transition: transform 0.35s ease, opacity 0.35s ease; }
-        .slide-out { opacity: 0; transform: scale(0.97); }
-        .slide-in { opacity: 1; transform: scale(1); }
+        .content-slide { transition: opacity 0.2s ease, transform 0.2s ease; }
+        .slide-out { opacity: 0; transform: translateY(10px); }
+        .slide-in { opacity: 1; transform: translateY(0); }
 
         .section-left-title {
             margin: 24px 0 14px 0;
@@ -166,24 +154,23 @@
             letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
         .section-left-title h3::before {
             content: '';
             display: inline-block;
             width: 4px; height: 14px;
-            background: var(--accent-blue);
+            background-color: var(--sexy-blue);
             border-radius: 2px;
-            box-shadow: 0 0 8px var(--accent-blue);
         }
         .section-left-title p {
             font-size: 11px;
             color: var(--text-muted);
             margin-top: 4px;
-            padding-left: 10px;
+            padding-left: 12px;
         }
 
-        /* Premium Categories Pills */
+        /* Categories Navigation */
         .top-categories-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -191,20 +178,20 @@
             margin-bottom: 10px;
         }
         .circle-category-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
             height: 44px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
-        .circle-category-card:active { transform: scale(0.95); background: rgba(255,255,255,0.2); }
-        .circle-category-card span { font-size: 12px; color: #ffffff; font-weight: 700; }
+        .circle-category-card:active { background-color: var(--sexy-blue); }
+        .circle-category-card span { font-size: 12px; color: #ffffff; }
 
-        /* Video Grid Cards */
+        /* Video Grid Layout */
         .shakes-style-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -212,21 +199,21 @@
             margin-bottom: 15px;
         }
         .shake-premium-card {
-            background: var(--glass-card);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s, border 0.2s;
             cursor: pointer;
+            transition: transform 0.2s;
         }
         .shake-premium-card:active { transform: scale(0.97); }
         
         .shake-thumb-placeholder {
             width: 100%;
             aspect-ratio: 16/10; 
-            background: #0b1a30;
+            background-color: var(--body-bg);
             position: relative;
         }
         .shake-thumb-placeholder img { width: 100%; height: 100%; object-fit: cover; }
@@ -234,13 +221,12 @@
         .adult-badge {
             position: absolute;
             top: 8px; left: 8px;
-            background: #ff3366;
+            background-color: var(--sexy-blue);
             color: #ffffff;
             font-size: 9px;
             padding: 2px 6px;
             border-radius: 4px;
             font-weight: 800;
-            box-shadow: 0 2px 6px rgba(255,51,102,0.4);
         }
         .shake-card-info {
             padding: 12px;
@@ -266,10 +252,9 @@
         }
         .shake-price { font-size: 10px; color: var(--text-muted); }
         .shake-watch-btn {
-            color: var(--accent-blue);
+            color: var(--sexy-blue);
             font-size: 11px;
             text-transform: uppercase;
-            font-weight: 700;
         }
 
         /* Modern List Layout */
@@ -279,25 +264,24 @@
             gap: 12px;
         }
         .blog-style-card {
-            background: var(--glass-card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             overflow: hidden;
             padding: 10px;
             display: flex;
             gap: 12px;
             align-items: center;
             cursor: pointer;
-            transition: background 0.2s;
         }
-        .blog-style-card:active { background: rgba(255,255,255,0.05); }
+        .blog-style-card:active { background-color: rgba(255,255,255,0.02); }
         .blog-media-left {
             width: 85px;
             height: 56px;
-            border-radius: 10px;
+            border-radius: 6px;
             overflow: hidden;
             flex-shrink: 0;
-            background: #0b1a30;
+            background-color: var(--body-bg);
         }
         .blog-media-left img { width: 100%; height: 100%; object-fit: cover; }
         .blog-info-right { flex-grow: 1; overflow: hidden; }
@@ -314,53 +298,50 @@
             color: var(--text-muted);
         }
 
-        /* Cinema Theater Box Style */
+        /* Cinema Player */
         .cinema-theater-panel {
             display: none;
-            background: #000;
-            border-radius: 20px;
+            background-color: #000;
+            border-radius: 16px;
             margin-bottom: 25px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--neon-glow);
+            border: 2px solid var(--sexy-blue);
         }
         .video-player-outer-box { width: 100%; aspect-ratio: 16/9; background: #000; }
         .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
-        .cinema-title-heading { font-size: 13px; color: #ffffff; padding: 14px 16px; line-height: 1.4; background: rgba(10,25,50,0.9); }
+        .cinema-title-heading { font-size: 13px; color: #ffffff; padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); }
 
-        /* Notice Dialog */
+        /* Pop Notice Overlay */
         .notice-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(6, 15, 33, 0.85); z-index: 9999;
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            background: rgba(10, 20, 36, 0.9); z-index: 9999;
             display: flex; justify-content: center; align-items: center;
-            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+            opacity: 0; visibility: hidden; transition: all 0.2s ease;
         }
         .notice-overlay.show { opacity: 1; visibility: visible; }
         .notice-box {
-            width: 86%; max-width: 340px; background: rgba(15, 32, 67, 0.95);
-            border: 1px solid var(--glass-border); border-radius: 24px;
-            padding: 24px; text-align: center; box-shadow: var(--neon-glow);
-            transform: scale(0.9); transition: transform 0.3s ease;
+            width: 86%; max-width: 340px; background-color: var(--card-bg);
+            border: 2px solid var(--sexy-blue); border-radius: 16px;
+            padding: 24px; text-align: center;
+            transform: scale(0.9); transition: transform 0.2s ease;
         }
         .notice-overlay.show .notice-box { transform: scale(1); }
-        .notice-title { font-size: 16px; color: #ffffff; margin-bottom: 12px; font-weight: 700; }
+        .notice-title { font-size: 16px; color: #ffffff; margin-bottom: 12px; }
         .notice-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px; }
         
         .notice-btn {
-            width: 100%; background: var(--accent-blue); color: #ffffff;
+            width: 100%; background-color: var(--sexy-blue); color: #ffffff;
             border: none; padding: 12px; border-radius: 25px; font-size: 13px;
-            font-weight: 700; text-transform: uppercase; cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+            text-transform: uppercase; cursor: pointer;
         }
 
         /* Footer */
         footer {
-            background: rgba(6, 15, 33, 0.8);
+            background-color: var(--body-bg);
             color: var(--text-muted);
             padding: 30px 20px;
             margin-top: auto;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid var(--border-color);
         }
         .footer-grid-4col {
             display: grid;
@@ -383,14 +364,14 @@
         }
         .footer-block ul li a:hover { color: #ffffff; }
         .footer-bottom-bar {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--border-color);
             padding-top: 15px;
             text-align: center;
             font-size: 11px;
             color: var(--text-muted);
         }
 
-        .loader { display: block; margin: 20px auto; border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent-blue); border-radius: 50%; width: 26px; height: 26px; animation: spin 0.8s linear infinite; }
+        .loader { display: block; margin: 20px auto; border: 3px solid rgba(255,255,255,0.05); border-top: 3px solid var(--sexy-blue); border-radius: 50%; width: 26px; height: 26px; animation: spin 0.8s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
@@ -424,7 +405,7 @@
         </div>
     </div>
 
-    <!-- Animated Cyber Banner -->
+    <!-- Solid Sexy Blue Hero Banner -->
     <div class="hero-banner-section">
         <div class="hero-text-wrapper">
             <div class="hero-sub" id="animatedTitle"></div>
