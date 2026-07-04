@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BurmaYoYar-HD - Premium Layout Edition</title>
+    <title>BurmeseRelax-Hd - Premium Edition</title>
     
     <!-- ⚠️ ADSTERRA NEW SCRIPTS -->
     <!-- Adsterra Popunder Code -->
@@ -147,15 +147,15 @@
             margin-top: 4px;
         }
 
-        /* 🆕 Layout 1: Horizontal Scroll Slider */
+        /* Horizontal Scroll Slider */
         .slider-categories-container {
             display: flex;
             gap: 10px;
             overflow-x: auto;
             padding: 4px 0 12px 0;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
-        .slider-categories-container::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .slider-categories-container::-webkit-scrollbar { display: none; }
         
         .capsule-category-card {
             flex: 0 0 auto;
@@ -169,7 +169,7 @@
         .capsule-category-card:active { background-color: var(--sexy-blue); }
         .capsule-category-card span { font-size: 13px; color: #ffffff; white-space: nowrap; }
 
-        /* 🆕 Layout 2: Interactive Staggered Column/Masonry Grid */
+        /* Interactive Staggered Column/Masonry Grid */
         .masonry-wrapper {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -190,7 +190,6 @@
             flex-direction: column;
             cursor: pointer;
         }
-        /* အနိမ့်အမြင့်မတူအောင် သတ်မှတ်ခြင်း */
         .column-left .staggered-card:nth-child(even) .thumb-box { aspect-ratio: 16/12; }
         .column-right .staggered-card:nth-child(odd) .thumb-box { aspect-ratio: 16/9; }
         
@@ -214,7 +213,7 @@
         }
         .card-meta { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); }
 
-        /* 🆕 Layout 3: Alternating Zig-Zag Row List */
+        /* Alternating Zig-Zag Row List */
         .zigzag-column { display: flex; flex-direction: column; gap: 14px; }
         .zigzag-card {
             background-color: var(--card-bg);
@@ -229,12 +228,10 @@
         .zigzag-info { width: 60%; padding: 14px; display: flex; flex-direction: column; justify-content: center; }
         .zigzag-info h4 { font-size: 13px; color: #ffffff; margin-bottom: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;}
         .zigzag-info p { font-size: 11px; color: var(--text-muted); }
-        
-        /* Zig-Zag ပုံစံ တစ်လှည့်စီ ပြောင်းခြင်း */
         .zigzag-card:nth-child(even) { flex-direction: row-reverse; }
         .zigzag-card:nth-child(even) .zigzag-info { text-align: right; }
 
-        /* Cinema Player */
+        /* Cinema Player & Advertisement Section */
         .cinema-theater-panel {
             display: none;
             background-color: #000;
@@ -245,7 +242,49 @@
         }
         .video-player-outer-box { width: 100%; aspect-ratio: 16/9; background: #000; }
         .video-player-outer-box iframe { width: 100%; height: 100%; border: none; }
-        .cinema-title-heading { font-size: 13px; color: #ffffff; padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); }
+        .cinema-title-heading { font-size: 13px; color: #ffffff; padding: 14px 16px; line-height: 1.4; background-color: var(--card-bg); border-bottom: 1px solid var(--border-color); }
+        
+        /* New VIP Promotion Layout Panel */
+        .vip-promo-box {
+            background-color: rgba(19, 36, 63, 0.8);
+            padding: 16px;
+            text-align: center;
+        }
+        .vip-promo-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+        .vip-highlight { color: #ff3377; font-weight: 800; }
+        
+        /* 🏃‍♂️ Runner Color (RGB Moving Wave) Button Style */
+        .runner-vip-btn {
+            display: inline-block;
+            width: 90%;
+            max-width: 280px;
+            padding: 14px;
+            font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(90deg, #007BFF, #ff3366, #00ffcc, #007BFF);
+            background-size: 300% 100%;
+            animation: runnerAnimation 2s linear infinite;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            transition: transform 0.1s ease;
+        }
+        .runner-vip-btn:active { transform: scale(0.96); }
+
+        @keyframes runnerAnimation {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 0%; }
+        }
 
         /* Notice Popup */
         .notice-overlay {
@@ -282,7 +321,7 @@
     <div class="notice-box">
         <div class="notice-title">📢 သတိပေးချက်နှင့် နှုတ်ခွန်းဆက်လွှာ</div>
         <div class="notice-text">
-            BurmaYoYar-HD မှ ကြိုဆိုပါတယ်ဗျာ။ ကျွန်ုပ်တို့ဆိုက်သည် နေ့စဉ် အကောင်းဆုံး ပရီမီယမ် ဇာတ်ကားများကို အရည်အသွေးမြင့်မားစွာဖြင့် အခမဲ့ တင်ဆက်ပေးနေပါသည်။
+            BurmeseRelax-Hd မှ ကြိုဆိုပါတယ်ဗျာ။ ကျွန်ုပ်တို့ဆိုက်သည် နေ့စဉ် အကောင်းဆုံး ပရီမီယမ် ဇာတ်ကားများကို အရည်အသွေးမြင့်မားစွာဖြင့် အခမဲ့ တင်ဆက်ပေးနေပါသည်။
         </div>
         <button class="notice-btn" onclick="closeNotice()">👌 ဖတ်ပြီးပါပြီ</button>
     </div>
@@ -293,7 +332,7 @@
     <header>
         <div class="header-brand" onclick="backToHome()">
             <h2>
-                <span class="part-burma">Burma</span><span class="part-yoyar">YoYar</span><span class="part-hd">-HD</span>
+                <span class="part-burma">Burmese</span><span class="part-yoyar">Relax</span><span class="part-hd">-Hd</span>
             </h2>
         </div>
     </header>
@@ -314,14 +353,27 @@
 
     <div class="main-body-content">
 
+        <!-- Cinema Theater Container with Video Player and VIP Sales Ad -->
         <div class="cinema-theater-panel" id="theaterBox">
             <div class="video-player-outer-box">
                 <iframe id="videoIframe" src="" allowfullscreen></iframe>
             </div>
             <h3 class="cinema-title-heading" id="videoTitle">Streaming Player Title...</h3>
+            
+            <!-- 🆕 VIP Sales Notice Area & Dynamic Auto Messenger Button -->
+            <div class="vip-promo-box">
+                <p>
+                    မြန်မာချောင်းရိုက် // ကလေးအောကား // မော်ဒယ်ကားများ // အထန်မလေးများ // Local Leak // အစုံကိုကြည့်ရှုနိုင်ဖို့ <br>
+                    <span class="vip-highlight">တစ်သက်စာ VIP ကြေး ၂၀၀၀၀ ကျပ်</span> ဖြင့် လာဝယ်လို့ရပြီ!
+                </p>
+                <!-- Runner Moving Neon Color Button linked to Telegram Request -->
+                <a class="runner-vip-btn" href="https://t.me/Aung_Myo_Thant?text=Vip%20%E1%80%9D%E1%80%BC%E1%80%84%E1%80%B3%E1%80%81%E1%80%B3%E1%80%84%E1%80%B3%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%B0%E1%80%94%E1%80%B2%E1%80%B1%20%E1%80%84%E1%80%BDeveloper%E1%80%B1%E1%80%9C%E1%80%BD%E1%80%B2%E1%80%B1%E1%80%9A%E1%80%BMean%E1%80%B2%E1%80%94%E1%80%B6%E1%80%9约定%E1%80%9A%E1%80%B1%E1%80%9C%E1%80%B2%E1%80%B1%E1%80%9ForAll%20Vip%20%E1%80%9D%E1%80%BC%E1%80%84%E1%80%B3%E1%80%81%E1%80%B3%E1%80%84%E1%80%B3%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%B1%E1%80%9A%E1%80%AB%20%E1%80%84%E1%80%B1%E1%80%9C%E1%80%BD%E1%80%B2%E1%80%Bmapping%E1%80%99%E1%80%B2%E1%80%B2%E1%80%94%E1%80%B6%E1%80%9约定%E1%80%9A%E1%80%B1%E1%80%9C%E1%80%B2%E1%80%B1%E1%80%97%E1%80%AD%E1%80%AF%E1%80%B2%E1%80%B1%E1%80%9A%E1%80%B2%E1%80%94%E1%80%AB" target="_blank">
+                    VIP ဝယ်ရန်
+                </a>
+            </div>
         </div>
 
-        <!-- 🆕 Layout 1: Horizontal Categories Bar -->
+        <!-- Horizontal Categories Bar -->
         <div class="section-left-title">
             <h3>TOP CATEGORIES</h3>
             <p>Swipe Left/Right to Discover Premium Genres</p>
@@ -334,7 +386,7 @@
             <div class="capsule-category-card" onclick="fetchNewCategory('college')"><span>Amateur Leak</span></div>
         </div>
 
-        <!-- 🆕 Layout 2: Staggered Masonry Layout -->
+        <!-- Staggered Masonry Layout -->
         <div class="section-left-title">
             <h3>PLATINUM DISCOVERIES</h3>
             <p>Staggered Interactive Grid Exploration</p>
@@ -344,7 +396,7 @@
             <div class="masonry-column column-right" id="masonryRight"></div>
         </div>
 
-        <!-- 🆕 Layout 3: Zig-Zag Alternate Rows -->
+        <!-- Zig-Zag Alternate Rows -->
         <div class="section-left-title">
             <h3>LATEST RELEASES</h3>
             <p>Creative Interlocking Grid Stream</p>
@@ -377,7 +429,7 @@
                 <ul><li><a href="#">Telegram Group</a></li></ul>
             </div>
         </div>
-        <div class="footer-bottom-bar">&copy; 2026 BurmaYoYar-HD. All Rights Reserved.</div>
+        <div class="footer-bottom-bar">&copy; 2026 BurmeseRelax-Hd. All Rights Reserved.</div>
     </footer>
 
 </div>
@@ -390,10 +442,17 @@
     let appendMode = false;
     let loadedVideoIds = new Set(); 
 
+    // Auto-Generated exact redirect text for Telegram Link integration
+    const rawTgMsg = "Vip ဝင်ချင်လို့ပါ ငွေလွှဲရမဲ့နံပါတ်လေးပို့ပေးပါ";
+    const tgBaseUrl = "https://t.me/Aung_Myo_Thant?text=" + encodeURIComponent(rawTgMsg);
+    
     const titleText = "ပရီမီယမ် ရသခံစားမှု့";
     const bodyText = "မြန်မာကားများတင်သာမက VIP , LOCAL LEAK , အဆင့်မြင့် အာရှ ဇာတ်ကားပေါင်းများစွာကို ပရီမီယမ်ဆန်စွာ အခမဲ့ ကြည့်ရှုနိူင်ပြီ!";
 
     document.addEventListener("DOMContentLoaded", () => {
+        // Setup Telegram absolute destination link dynamically
+        document.querySelector(".runner-vip-btn").setAttribute("href", tgBaseUrl);
+        
         startEngine();
         startTextAnimations();
         if (!localStorage.getItem("hasSeenBurmaYoYarNoticeFinal")) {
@@ -460,7 +519,6 @@
         const mRight = document.getElementById("masonryRight");
         const zigzagList = document.getElementById("zigzagList");
 
-        // ပထမ ၆ ကားကို Staggered Column ထဲခွဲထည့်မယ်
         const gridItems = videos.slice(0, 6);
         gridItems.forEach((v, index) => {
             const card = document.createElement("div");
@@ -482,7 +540,6 @@
             else mRight.appendChild(card);
         });
 
-        // ကျန်တဲ့ကားတွေကို Zig-Zag Row List ထဲထည့်မယ်
         const rowItems = videos.slice(6);
         rowItems.forEach(v => {
             const item = document.createElement("div");
